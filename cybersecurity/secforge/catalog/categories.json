@@ -1,0 +1,18 @@
+[
+  {"id": "recon", "name": "Reconnaissance", "icon": "🔍", "description": "Information gathering and reconnaissance tools"},
+  {"id": "scanning", "name": "Network Scanning", "icon": "📡", "description": "Port scanners and network enumerators"},
+  {"id": "web", "name": "Web Application", "icon": "🌐", "description": "Web vulnerability scanners and exploitation tools"},
+  {"id": "exploitation", "name": "Exploitation", "icon": "💥", "description": "Exploit frameworks and payload generators"},
+  {"id": "post-exploit", "name": "Post-Exploitation", "icon": "🕵️", "description": "Post-exploitation and privilege escalation"},
+  {"id": "wireless", "name": "Wireless", "icon": "📶", "description": "Wi-Fi and Bluetooth testing tools"},
+  {"id": "forensics", "name": "Forensics", "icon": "🔬", "description": "Digital forensics and analysis tools"},
+  {"id": "anonymity", "name": "Anonymity", "icon": "🕶️", "description": "Privacy, anonymization, and anti-forensics"},
+  {"id": "password", "name": "Password Attacks", "icon": "🔑", "description": "Password cracking and hash analysis"},
+  {"id": "reverse", "name": "Reverse Engineering", "icon": "⚙️", "description": "Binary analysis and reverse engineering"},
+  {"id": "stego", "name": "Steganography", "icon": "🧩", "description": "Data hiding and steganography tools"},
+  {"id": "mobile", "name": "Mobile Security", "icon": "📱", "description": "Android/iOS security testing tools"},
+  {"id": "cloud", "name": "Cloud Security", "icon": "☁️", "description": "Cloud infrastructure security assessment"},
+  {"id": "ad", "name": "Active Directory", "icon": "🏢", "description": "AD enumeration and attack tools"},
+  {"id": "ddos", "name": "DDoS Testing", "icon": "🌊", "description": "DDoS simulation and stress testing"},
+  {"id": "payload", "name": "Payloads", "icon": "💉", "description": "Payload and shellcode generators"}
+]

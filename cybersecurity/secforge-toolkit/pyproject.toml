@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "secforge"
+version = "2.0.0"
+description = "Security Toolkit Forge — interactive TUI for discovering, installing, and running 100+ security tools"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "PavelGoblin" }]
+requires-python = ">=3.10"
+dependencies = ["rich>=13.0"]
+
+[project.scripts]
+secforge = "secforge.launcher:main"

@@ -1,0 +1,26 @@
+# Build
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.lib
+*.so
+*.a
+build/
+bin/
+obj/
+Debug/
+Release/
+*.sln.cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

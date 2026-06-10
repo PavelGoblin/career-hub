@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IELTS Mastery Pro - Complete IELTS Journey Platform</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0f;--bg2:#12121a;--card:rgba(255,255,255,0.04);--card-hover:rgba(255,255,255,0.08);--border:rgba(255,255,255,0.06);--text:#e8e8f0;--text2:#8888a0;--accent:#00d4ff;--accent2:#0099cc;--accent-glow:rgba(0,212,255,0.15);--shadow:0 8px 32px rgba(0,0,0,0.4);--radius:16px;--radius-sm:10px;--font:'Segoe UI',system-ui,-apple-system,sans-serif;--sidebar-w:260px;--transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.light{--bg:#f4f6fb;--bg2:#ffffff;--card:rgba(0,0,0,0.03);--card-hover:rgba(0,0,0,0.06);--border:rgba(0,0,0,0.08);--text:#1a1a2e;--text2:#555577;--shadow:0 8px 32px rgba(0,0,0,0.08)}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;transition:var(--transition)}
+::selection{background:var(--accent);color:#000}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:3px}
+.sidebar{position:fixed;left:0;top:0;width:var(--sidebar-w);height:100vh;background:var(--bg2);border-right:1px solid var(--border);z-index:100;overflow-y:auto;transition:var(--transition)}
+.sidebar-header{padding:24px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sidebar-header .logo{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#000}
+.sidebar-header h1{font-size:16px;font-weight:700;color:var(--text);white-space:nowrap}
+.sidebar-header span{color:var(--accent)}
+.nav-list{list-style:none;padding:12px 0}
+.nav-item a{display:flex;align-items:center;gap:12px;padding:10px 20px;color:var(--text2);font-size:13px;font-weight:500;transition:var(--transition);text-decoration:none;border-left:3px solid transparent}
+.nav-item a:hover,.nav-item a.active{color:var(--text);background:var(--card);border-left-color:var(--accent)}
+.nav-item a.active{color:var(--accent);box-shadow:inset 0 0 20px rgba(0,212,255,0.05)}
+.nav-item .icon{font-size:16px;width:20px;text-align:center}
+.nav-item .badge{background:var(--accent);color:#000;font-size:10px;padding:1px 7px;border-radius:10px;margin-left:auto;font-weight:700}
+.main{margin-left:var(--sidebar-w);min-height:100vh;transition:var(--transition)}
+.section{padding:60px 48px 80px;display:none;animation:fadeIn 0.5s ease}
+.section.active{display:block}
+.section-title{font-size:32px;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--text),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% 200%;animation:gradient-flow 4s ease infinite}
+.section-subtitle{color:var(--text2);font-size:15px;margin-bottom:40px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 5px var(--accent-glow)}50%{box-shadow:0 0 25px var(--accent-glow)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes gradient-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);margin-bottom:20px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;opacity:0;background:linear-gradient(135deg,transparent,rgba(0,212,255,0.03));transition:opacity 0.4s ease;pointer-events:none}
+.card:hover::before{opacity:1}
+.card:hover{background:var(--card-hover);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3),0 0 30px var(--accent-glow);border-color:rgba(0,212,255,0.25)}
+.card h3{font-size:18px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.card h4{font-size:15px;font-weight:600;margin-bottom:8px;color:var(--accent)}
+.card p{color:var(--text2);font-size:14px;line-height:1.8;margin-bottom:8px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1024px){.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;border:none;cursor:pointer;transition:var(--transition);font-family:var(--font);position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.1),transparent);transform:translateX(-100%);transition:transform 0.6s ease}
+.btn:hover::after{transform:translateX(100%)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#0088ff);background-size:200% 200%;animation:gradient-flow 3s ease infinite;color:#000}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,212,255,0.4)}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-sm{padding:6px 16px;font-size:12px}
+.table-wrap{overflow-x:auto;border-radius:var(--radius-sm);border:1px solid var(--border);transition:var(--transition)}
+.table-wrap:hover{border-color:rgba(0,212,255,0.2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--card)}
+th{padding:12px 16px;text-align:left;font-weight:600;color:var(--accent);border-bottom:1px solid var(--border)}
+td{padding:10px 16px;border-bottom:1px solid var(--border);color:var(--text2)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--card-hover)}
+.tab-bar{display:flex;gap:4px;margin-bottom:28px;flex-wrap:wrap;background:var(--card);border-radius:var(--radius-sm);padding:4px;border:1px solid var(--border)}
+.tab-btn{padding:8px 20px;font-size:13px;font-weight:600;border:none;background:transparent;color:var(--text2);cursor:pointer;border-radius:8px;transition:var(--transition);font-family:var(--font);white-space:nowrap}
+.tab-btn.active{background:var(--accent);color:#000}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.hero{min-height:70vh;display:flex;align-items:center;justify-content:center;position:relative;text-align:center;padding:60px 0;overflow:hidden}
+.hero-particle{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{font-size:52px;font-weight:900;margin-bottom:16px;line-height:1.2;animation:scaleIn 0.8s ease}
+.hero h1 span{background:linear-gradient(135deg,var(--accent),#0088ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:18px;color:var(--text2);margin-bottom:32px;max-width:600px;margin:0 auto 32px;animation:slideIn 0.8s ease 0.2s both}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:40px;flex-wrap:wrap;animation:scaleIn 0.8s ease 0.4s both}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:32px;font-weight:800;color:var(--accent);animation:float 3s ease-in-out infinite;display:inline-block}
+.hero-stat:nth-child(2) .num{animation-delay:0.5s}
+.hero-stat:nth-child(3) .num{animation-delay:1s}
+.hero-stat:nth-child(4) .num{animation-delay:1.5s}
+.hero-stat .label{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:1px}
+.progress-wrap{margin:16px 0}
+.progress-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#0088ff,#00d4ff);background-size:200% 100%;animation:gradient-flow 3s ease infinite;border-radius:4px;transition:width 1s ease;width:0}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:6px}
+.score-calc{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:500px}
+.score-calc input,.score-calc select{padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;font-family:var(--font);transition:var(--transition);width:100%}
+.score-calc input:focus,.score-calc select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.score-result{font-size:48px;font-weight:900;color:var(--accent);text-align:center;padding:20px}
+.word-counter textarea{width:100%;min-height:200px;padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;font-family:var(--font);resize:vertical;transition:var(--transition)}
+.word-counter textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.word-counter .count-display{display:flex;gap:24px;margin-top:10px;font-size:13px;color:var(--text2);flex-wrap:wrap}
+.flashcard{perspective:1000px;height:220px;cursor:pointer;margin-bottom:16px;transition:var(--transition)}
+.flashcard:hover{transform:scale(1.02)}
+.flashcard-inner{position:relative;width:100%;height:100%;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);transform-style:preserve-3d}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}
+.flashcard-front,.flashcard-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(20px)}
+.flashcard-back{transform:rotateY(180deg);background:linear-gradient(135deg,var(--card),rgba(0,212,255,0.08))}
+.timer-display{font-size:64px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--accent);text-align:center;padding:20px 0;font-family:monospace;animation:pulse-glow 2s ease-in-out infinite}
+.timer-controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.timer-phase{text-align:center;font-size:14px;color:var(--text2);margin-bottom:8px}
+.search-bar{position:relative;max-width:400px;margin-bottom:32px}
+.search-bar input{width:100%;padding:12px 16px 12px 44px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;font-family:var(--font);transition:var(--transition)}
+.search-bar input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.search-bar .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:16px}
+.theme-toggle{position:fixed;top:20px;right:20px;z-index:200;width:42px;height:42px;border-radius:50%;background:var(--card);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);backdrop-filter:blur(10px)}
+.theme-toggle:hover{transform:scale(1.15) rotate(15deg);box-shadow:0 0 20px var(--accent-glow)}
+.quiz-option{padding:14px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);margin-bottom:8px;font-size:14px}
+.quiz-option:hover{border-color:var(--accent);background:var(--card);transform:translateX(4px)}
+.quiz-option.selected{border-color:var(--accent);background:rgba(0,212,255,0.1)}
+.quiz-option.correct{border-color:#00e676;background:rgba(0,230,118,0.1)}
+.quiz-option.wrong{border-color:#ff5252;background:rgba(255,82,82,0.1)}
+.quiz-feedback{padding:16px;border-radius:var(--radius-sm);margin-top:12px;font-size:14px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:#00e676}
+.quiz-feedback.wrong{background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.3);color:#ff5252}
+.tag{display:inline-block;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:600;margin:2px;background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.2);transition:var(--transition)}
+.tag:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,212,255,0.2)}
+.tag-blue{background:rgba(0,212,255,0.15);color:var(--accent)}
+.tag-green{background:rgba(0,230,118,0.15);color:#00e676}
+.tag-red{background:rgba(255,82,82,0.15);color:#ff5252}
+.timeline{position:relative;padding:20px 0}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;padding-left:56px;padding-bottom:32px}
+.timeline-item::before{content:'';position:absolute;left:12px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--accent);border:4px solid var(--bg);animation:pulse-glow 2s ease-in-out infinite}
+.timeline-item .date{font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.tip-box{background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:var(--radius-sm);padding:20px;margin:16px 0;border-left:4px solid var(--accent)}
+.tip-box .tip-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.mistake-box{background:rgba(255,82,82,0.06);border:1px solid rgba(255,82,82,0.15);border-radius:var(--radius-sm);padding:20px;margin:16px 0;border-left:4px solid #ff5252}
+.mistake-box .mistake-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#ff5252;font-weight:700;margin-bottom:6px}
+.cue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.cue-card{padding:14px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);font-size:13px;text-align:center}
+.cue-card:hover{border-color:var(--accent);transform:translateY(-4px) scale(1.02);box-shadow:0 8px 25px rgba(0,212,255,0.15)}
+.cue-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:500;align-items:center;justify-content:center;padding:20px}
+.cue-modal.open{display:flex}
+.cue-modal-content{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:560px;width:100%;max-height:80vh;overflow-y:auto}
+.cue-modal-content .cue-timer{font-size:48px;font-weight:900;color:var(--accent);text-align:center;padding:16px 0;font-family:monospace}
+@media(max-width:1024px){.sidebar{width:60px}.sidebar-header h1,.nav-item a span{display:none}.sidebar-header .logo{margin:0 auto}.nav-item a{justify-content:center;padding:12px;border-left:none}.nav-item .badge{display:none}.main{margin-left:60px}.section{padding:40px 24px}}
+@media(max-width:768px){.sidebar{width:0;overflow:hidden}.sidebar.open{width:260px}.sidebar.open .sidebar-header h1,.sidebar.open .nav-item a span{display:inline}.sidebar.open .nav-item a{justify-content:flex-start;padding:10px 20px;border-left:3px solid transparent}.sidebar.open .nav-item .badge{display:block}.main{margin-left:0}.section{padding:28px 16px}.hero h1{font-size:32px}.theme-toggle{top:12px;right:12px;width:36px;height:36px;font-size:15px}.mobile-menu-btn{display:flex!important}}
+.mobile-menu-btn{display:none;position:fixed;top:12px;left:12px;z-index:200;width:36px;height:36px;border-radius:8px;background:var(--card);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;font-size:18px;color:var(--text);transition:var(--transition);backdrop-filter:blur(10px)}
+@media print{body{background:#fff;color:#000!important}.sidebar,.theme-toggle,.mobile-menu-btn{display:none!important}.main{margin-left:0!important}.section{display:block!important;padding:20px!important;page-break-after:always}.card{background:#f8f8f8!important;border:1px solid #ddd!important;backdrop-filter:none!important}.section-title{-webkit-text-fill-color:#000!important;color:#000!important;background:none!important}table{font-size:11px!important}th{background:#eee!important;color:#000!important}td{color:#333!important}.btn{display:none!important}}
+.fade-up{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.22,1,0.36,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.plan-card{padding:24px;text-align:center;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+.plan-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,0,0,0.3),0 0 40px var(--accent-glow)}
+.plan-card .plan-title{font-size:20px;font-weight:800;margin-bottom:4px}
+.plan-card .plan-duration{font-size:13px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.plan-features{list-style:none;text-align:left;margin:16px 0}
+.plan-features li{padding:6px 0;font-size:13px;color:var(--text2);display:flex;align-items:center;gap:8px}
+.plan-features li::before{content:'\2713';color:var(--accent);font-weight:700}
+.list-check{list-style:none}
+.list-check li{padding:4px 0 4px 24px;position:relative;font-size:13px;color:var(--text2)}
+.list-check li::before{content:'\2713';position:absolute;left:0;color:var(--accent);font-weight:700}
+.list-cross{list-style:none}
+.list-cross li{padding:4px 0 4px 24px;position:relative;font-size:13px;color:var(--text2)}
+.list-cross li::before{content:'\2717';position:absolute;left:0;color:#ff5252;font-weight:700}
+.part-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-right:6px}
+.part-badge.p1{background:rgba(0,212,255,0.15);color:var(--accent)}
+.part-badge.p2{background:rgba(179,136,255,0.15);color:#b388ff}
+.part-badge.p3{background:rgba(255,179,0,0.15);color:#ffb300}
+.colloc-item{display:inline-block;padding:6px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:13px;color:var(--text);transition:var(--transition);margin:3px}
+.colloc-item:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,212,255,0.1)}
+.btn-bookmark{background:none;border:none;cursor:pointer;font-size:18px;color:var(--text2);transition:var(--transition);padding:4px 8px;border-radius:6px}
+.btn-bookmark:hover{color:var(--accent);background:var(--card)}
+.btn-bookmark.saved{color:#ffd700}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.lib-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+.lib-card:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 12px 35px rgba(0,0,0,0.3),0 0 20px var(--accent-glow)}
+.lib-card .lib-icon{font-size:28px;margin-bottom:8px}
+.lib-card h4{font-size:15px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.lib-card p{font-size:12px;color:var(--text2)}
+.lib-card .lib-count{font-size:12px;color:var(--accent);font-weight:600}
+.lib-filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.lib-filter-btn{padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+.lib-filter-btn.active,.lib-filter-btn:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-2px)}
+.save-toast{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,var(--accent),#0088ff);color:#000;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:600;z-index:999;opacity:0;transform:translateY(20px);transition:all 0.4s ease;pointer-events:none;animation:slideIn 0.4s ease}
+.save-toast.show{opacity:1;transform:translateY(0)}
+.empty-state{text-align:center;padding:60px 20px;color:var(--text2)}
+.empty-state .empty-icon{font-size:48px;margin-bottom:12px}
+.streak-bar{display:flex;align-items:center;gap:12px;padding:16px;background:var(--card);border-radius:var(--radius-sm);border:1px solid var(--border)}
+.streak-bar .streak-num{font-size:24px;font-weight:800;color:var(--accent);animation:float 2s ease-in-out infinite}
+.study-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;transition:var(--transition)}
+.study-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.study-card h4{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.study-card .task-list{list-style:none;padding:0}
+.study-card .task-list li{padding:6px 0 6px 24px;font-size:13px;color:var(--text2);position:relative}
+.study-card .task-list li::before{content:'\25CB';position:absolute;left:0;color:var(--accent);font-size:14px}
+</style></head>
+<body>
+<button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
+<button class="theme-toggle" id="themeToggle">&#9790;</button>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><div class="logo">I</div><h1>IELTS <span>Mastery</span></h1></div>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="#home" data-section="home"><span class="icon">&#9751;</span><span>Dashboard</span></a></li>
+    <li class="nav-item"><a href="#overview" data-section="overview"><span class="icon">&#9881;</span><span>Overview</span></a></li>
+    <li class="nav-item"><a href="#listening" data-section="listening"><span class="icon">&#9835;</span><span>Listening</span></a></li>
+    <li class="nav-item"><a href="#reading" data-section="reading"><span class="icon">&#128214;</span><span>Reading</span></a></li>
+    <li class="nav-item"><a href="#writing" data-section="writing"><span class="icon">&#9998;</span><span>Writing</span></a></li>
+    <li class="nav-item"><a href="#speaking" data-section="speaking"><span class="icon">&#128172;</span><span>Speaking</span></a></li>
+    <li class="nav-item"><a href="#vocabulary" data-section="vocabulary"><span class="icon">&#128218;</span><span>Vocabulary</span><span class="badge">500+</span></a></li>
+    <li class="nav-item"><a href="#grammar" data-section="grammar"><span class="icon">&#128221;</span><span>Grammar</span><span class="badge">35+</span></a></li>
+    <li class="nav-item"><a href="#practice" data-section="practice"><span class="icon">&#128203;</span><span>Practice Tests</span></a></li>
+    <li class="nav-item"><a href="#mylibrary" data-section="mylibrary"><span class="icon">&#128451;</span><span>My Library</span><span class="badge" id="libBadge">0</span></a></li>
+    <li class="nav-item"><a href="#resources" data-section="resources"><span class="icon">&#128216;</span><span>Resources</span></a></li>
+    <li class="nav-item"><a href="#studyplans" data-section="studyplans"><span class="icon">&#128197;</span><span>Study Plans</span></a></li>
+  </ul>
+</aside>
+<main class="main" id="mainContent">
+<section id="home" class="section active">
+  <div class="hero">
+    <div class="hero-particle" id="particleCanvas"></div>
+    <div class="hero-content">
+      <h1>Complete Your <span>IELTS Journey</span></h1>
+      <p>From first diagnostic to exam day — every resource, lesson, and practice tool you need to achieve your target band score, all in one platform.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="switchSection('overview')">Start Learning Path</button>
+        <button class="btn btn-outline" onclick="switchSection('practice')">Take Mock Test</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">12</div><div class="label">Sections</div></div>
+        <div class="hero-stat"><div class="num">500+</div><div class="label">Vocabulary</div></div>
+        <div class="hero-stat"><div class="num">100</div><div class="label">Cue Cards</div></div>
+        <div class="hero-stat"><div class="num">30+</div><div class="label">Grammar Rules</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-up">
+    <h2 class="section-title">Your Dashboard</h2>
+    <p class="section-subtitle">Track your IELTS preparation journey from start to finish</p>
+    <div class="grid-2">
+      <div class="card"><h3>Overall Progress</h3><div class="progress-wrap"><div class="progress-label"><span>Sections Completed</span><span id="overallPercent">0%</span></div><div class="progress-bar"><div class="progress-fill" id="overallProgress" style="width:0%"></div></div></div><div class="progress-wrap" style="margin-top:20px"><div class="progress-label"><span>Study Streak</span><span id="streakDisplay">0 days</span></div><div class="progress-bar"><div class="progress-fill" id="streakProgress" style="width:0%"></div></div></div></div>
+      <div class="card"><h3>Quick Actions</h3><div style="display:flex;flex-wrap:wrap;gap:8px"><button class="btn btn-primary btn-sm" onclick="switchSection('vocabulary')">Study Vocabulary</button><button class="btn btn-outline btn-sm" onclick="switchSection('grammar')">Grammar</button><button class="btn btn-outline btn-sm" onclick="switchSection('speaking')">Speaking</button><button class="btn btn-outline btn-sm" onclick="switchSection('writing')">Writing</button><button class="btn btn-outline btn-sm" onclick="switchSection('practice')">Mock Test</button><button class="btn btn-outline btn-sm" onclick="window.print()">Print</button></div></div>
+    </div>
+    <div class="grid-3 fade-up" style="margin-top:20px">
+      <div class="card" style="text-align:center;padding:20px"><div style="font-size:36px;font-weight:900;color:var(--accent)" id="dashVocab">0</div><div style="font-size:12px;color:var(--text2)">Words Saved</div></div>
+      <div class="card" style="text-align:center;padding:20px"><div style="font-size:36px;font-weight:900;color:var(--accent)" id="dashWriting">0</div><div style="font-size:12px;color:var(--text2)">Writing Drafts</div></div>
+      <div class="card" style="text-align:center;padding:20px"><div style="font-size:36px;font-weight:900;color:var(--accent)" id="dashTests">0</div><div style="font-size:12px;color:var(--text2)">Tests Taken</div></div>
+    </div>
+  </div>
+</section>
+<section id="overview" class="section">
+  <div class="search-bar"><span class="search-icon">&#128269;</span><input type="text" id="globalSearch" placeholder="Search 500+ materials across all sections..." oninput="doSearch(this.value)"></div>
+  <h2 class="section-title">IELTS Overview</h2>
+  <p class="section-subtitle">Complete exam guide — format, scoring, and everything you need to know</p>
+  <div class="grid-2 fade-up">
+    <div class="card"><h3>What is IELTS?</h3><p>The International English Language Testing System (IELTS) is the world's most popular English proficiency test for higher education and global migration. Over 3.5 million tests are taken annually across 140+ countries, accepted by 11,000+ organisations worldwide.</p><p><strong>Two versions:</strong> <strong>Academic</strong> (university admissions) and <strong>General Training</strong> (work/migration). Listening and Speaking are identical; Reading and Writing differ.</p></div>
+    <div class="card"><h3>Test Format</h3><div class="table-wrap" style="margin-top:8px"><table><thead><tr><th>Section</th><th>Duration</th><th>Questions</th></tr></thead><tbody><tr><td>Listening</td><td>30 + 10 min</td><td>40</td></tr><tr><td>Reading</td><td>60 min</td><td>40</td></tr><tr><td>Writing</td><td>60 min</td><td>2 tasks</td></tr><tr><td>Speaking</td><td>11-14 min</td><td>3 parts</td></tr></tbody></table></div><p style="margin-top:8px"><strong>Total:</strong> 2h 45min. Results in 13 days.</p></div>
+  </div>
+  <div class="fade-up"><h3 style="font-size:22px;font-weight:700;margin:32px 0 16px">Band Score Descriptors</h3><div class="table-wrap"><table><thead><tr><th>Band</th><th>Label</th><th>Description</th></tr></thead><tbody><tr><td style="color:var(--accent);font-weight:800">9</td><td>Expert User</td><td>Fully operational command. Complete understanding.</td></tr><tr><td style="color:var(--accent);font-weight:800">8</td><td>Very Good User</td><td>Fully operational, occasional inaccuracies.</td></tr><tr><td style="color:var(--accent);font-weight:800">7</td><td>Good User</td><td>Operational command, occasional problems.</td></tr><tr><td style="color:var(--accent);font-weight:800">6</td><td>Competent User</td><td>Effective command despite some errors.</td></tr><tr><td style="color:var(--accent);font-weight:800">5</td><td>Modest User</td><td>Partial command, cop with overall meaning.</td></tr><tr><td style="color:var(--accent);font-weight:800">4</td><td>Limited User</td><td>Basic competence, frequent problems.</td></tr><tr><td style="color:var(--accent);font-weight:800">3</td><td>Extremely Limited</td><td>Only general meaning in familiar situations.</td></tr><tr><td style="color:var(--accent);font-weight:800">2</td><td>Intermittent User</td><td>No real communication beyond isolated words.</td></tr><tr><td style="color:var(--accent);font-weight:800">1</td><td>Non-User</td><td>Essentially no ability to use the language.</td></tr><tr><td style="color:var(--accent);font-weight:800">0</td><td>Did Not Attempt</td><td>No assessable information.</td></tr></tbody></table></div></div>
+  <div class="grid-2 fade-up" style="margin-top:32px">
+    <div class="card"><h3>Band Calculator</h3><p style="margin-bottom:12px">Convert raw score (0-40) to IELTS band:</p><div class="score-calc"><input type="number" id="rawScore" min="0" max="40" placeholder="Raw score" oninput="calcBand()"><select id="scoreSection" onchange="calcBand()"><option value="listening">Listening</option><option value="readingA">Reading (Academic)</option><option value="readingG">Reading (General)</option></select></div><div class="score-result" id="bandResult">--</div><button class="btn btn-primary btn-sm" id="saveResultBtn" style="display:none;margin:0 auto">Save Result</button></div>
+    <div class="card"><h3>FAQ</h3><div class="accordion-item"><div class="accordion-header" onclick="this.parentNode.classList.toggle('open')">Can I use a pen for Listening? <span class="arrow">&#9660;</span></div><div class="accordion-body">No, pencil is required for Listening and Reading. Pen is allowed for Writing.</div></div><div class="accordion-item"><div class="accordion-header" onclick="this.parentNode.classList.toggle('open')">How long is my score valid? <span class="arrow">&#9660;</span></div><div class="accordion-body">IELTS scores are valid for 2 years from the test date.</div></div><div class="accordion-item"><div class="accordion-header" onclick="this.parentNode.classList.toggle('open')">Can I reschedule? <span class="arrow">&#9660;</span></div><div class="accordion-body">Yes, up to 5 weeks before the test. Late cancellation may incur fees.</div></div></div>
+  </div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>Most universities require 6.5 overall with no sub-score below 6.0. Top universities need 7.5+. Plan your target and focus on your weakest skill.</p></div>
+</section>
+<section id="listening" class="section">
+  <h2 class="section-title">Listening</h2>
+  <p class="section-subtitle">4 sections, 40 questions, 30 min + 10 min transfer</p>
+  <div class="grid-3 fade-up">
+    <div class="card"><h3>Section 1: Social Conversation</h3><p>Two speakers in everyday situation (hotel booking, event registration). Form completion, table completion, MCQ.</p></div>
+    <div class="card"><h3>Section 2: Social Monologue</h3><p>Single speaker (tour guide, radio broadcast). Map labelling, matching, table completion.</p></div>
+    <div class="card"><h3>Section 3: Educational Conversation</h3><p>2-4 speakers in academic setting (tutorial, project discussion). MCQ, matching, sentence completion.</p></div>
+    <div class="card"><h3>Section 4: Academic Lecture</h3><p>Single speaker delivering a lecture. Note completion, summary completion.</p></div>
+    <div class="card"><h3>10 Question Types</h3><div style="display:flex;flex-wrap:wrap;gap:4px"><span class="tag">Form completion</span><span class="tag">Table completion</span><span class="tag">Note completion</span><span class="tag">Sentence completion</span><span class="tag">Summary completion</span><span class="tag">MCQ</span><span class="tag">Map labelling</span><span class="tag">Matching</span><span class="tag">Short answer</span><span class="tag">Diagram labelling</span></div></div>
+    <div class="card"><h3>Key Strategies</h3><ul class="list-check"><li>Read ahead using breaks before each section</li><li>Underline keywords in questions before listening</li><li>Predict answer type (date, name, number, adjective)</li><li>Don't dwell on missed answers — move on</li><li>Check word limits: "NO MORE THAN THREE WORDS"</li><li>Spelling counts — wrong spelling = 0 marks</li></ul></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px">
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:16px">Section 1 Practice: Hotel Booking</h3>
+    <div class="card"><p style="margin-bottom:12px"><em>Complete the booking form.</em></p><div style="background:var(--bg2);padding:16px;border-radius:var(--radius-sm);margin-bottom:12px"><p><strong>Name:</strong> Anna ____________ (1)</p><p><strong>Destination:</strong> ____________ (2)</p><p><strong>Date:</strong> ____________ 12th June (3)</p></div>
+    <div class="quiz-option" onclick="checkListening(this,'miller','miller')">A) Miller</div><div class="quiz-option" onclick="checkListening(this,'taylor','miller')">B) Taylor</div><div class="quiz-option" onclick="checkListening(this,'wilson','miller')">C) Wilson</div>
+    <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="document.getElementById('la1').style.display='block'">Show Answers</button><div id="la1" style="display:none;margin-top:8px;padding:12px;background:rgba(0,212,255,0.06);border-radius:var(--radius-sm);font-size:13px">1. Miller 2. Barcelona 3. Friday</div></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px">
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:16px">Section 2 Practice: Map Labelling</h3>
+    <div class="card"><p style="margin-bottom:12px"><em>Match each room to its location in the museum.</em></p><div style="display:flex;flex-direction:column;gap:8px;font-size:13px"><div>Location A: <select onchange="checkMapAns(this,'A')" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option value="">Select</option><option value="gallery">Main Gallery</option><option value="cafe">Cafe</option><option value="shop">Gift Shop</option></select></div><div>Location B: <select onchange="checkMapAns(this,'B')" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option value="">Select</option><option value="lecture">Lecture Hall</option><option value="cafe">Cafe</option><option value="shop">Shop</option></select></div></div></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px">
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:16px">Section 3 Practice: Tutorial Discussion</h3>
+    <div class="card"><p style="margin-bottom:12px"><em>Choose the correct answer.</em></p><p><strong>What is Sarah's research focus?</strong></p><div class="quiz-option" onclick="checkListening(this,'renewable','renewable')">A) Renewable energy policy</div><div class="quiz-option" onclick="checkListening(this,'urban','renewable')">B) Urban transport</div><div class="quiz-option" onclick="checkListening(this,'marine','renewable')">C) Marine conservation</div></div>
+  </div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>The 10-minute transfer time is critical. Check spelling, grammar, and word limits carefully. One spelling mistake = one lost mark.</p></div>
+  <div class="mistake-box fade-up"><div class="mistake-label">Common Mistakes</div><ul class="list-cross"><li>Spelling errors = 0 marks</li><li>Exceeding word limits</li><li>Getting stuck on one question</li><li>Not transferring answers correctly</li><li>Misunderstanding accents</li></ul></div>
+</section>
+<section id="reading" class="section">
+  <h2 class="section-title">Reading</h2>
+  <p class="section-subtitle">3 passages, 40 questions, 60 minutes, 13 question types</p>
+  <div class="grid-2 fade-up">
+    <div class="card"><h3>Strategies</h3><p><strong>Skim first (2 min):</strong> Read first sentence of each paragraph. <strong>Scan (1 min):</strong> Find keywords. <strong>Time:</strong> 20 min per passage exactly.</p></div>
+    <div class="card"><h3>13 Question Types</h3><div style="display:flex;flex-wrap:wrap;gap:4px"><span class="tag tag-blue">TFNG</span><span class="tag tag-green">Yes/No/NG</span><span class="tag tag-orange">Matching headings</span><span class="tag tag-purple">Matching info</span><span class="tag tag-blue">Matching features</span><span class="tag tag-green">Matching endings</span><span class="tag tag-orange">MCQ</span><span class="tag tag-purple">Sentence completion</span><span class="tag tag-blue">Summary completion</span><span class="tag tag-green">Table completion</span><span class="tag tag-orange">Short answer</span><span class="tag tag-purple">Diagram labelling</span><span class="tag tag-blue">Flow chart</span></div></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:20px;font-weight:700;margin-bottom:16px">Passage 1: Great Barrier Reef (TFNG)</h3>
+    <div class="card"><p style="background:var(--bg2);padding:12px;border-radius:var(--radius-sm);margin-bottom:12px;font-size:13px"><strong>Passage:</strong> The reef stretches 2,300 km along Australia's northeast coast. It has 2,900 reefs, 900 islands, 1,500 fish species. Visible from space. Generates $6B/year tourism. Bleaching events in 1998, 2002, 2016, 2017, 2020, 2022. Government invested $3B since 2015.</p>
+    <p style="margin-bottom:4px;font-size:13px"><strong>1.</strong> The reef is off Western Australia's coast.</p><div style="display:flex;gap:8px;margin-bottom:8px"><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,0,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,0,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,0,2)">NG</button></div>
+    <p style="margin-bottom:4px;font-size:13px"><strong>2.</strong> The reef contains over 2,900 reef systems.</p><div style="display:flex;gap:8px;margin-bottom:8px"><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,1,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,1,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,1,2)">NG</button></div>
+    <p style="margin-bottom:4px;font-size:13px"><strong>3.</strong> The government spent over $5B on conservation.</p><div style="display:flex;gap:8px;margin-bottom:8px"><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,2,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,2,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,2,2)">NG</button></div>
+    <p style="margin-bottom:4px;font-size:13px"><strong>4.</strong> Bleaching occurred in 2016 and 2017.</p><div style="display:flex;gap:8px;margin-bottom:8px"><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,3,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,3,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG(this,3,2)">NG</button></div>
+    <div id="readingScore1" style="font-size:14px;color:var(--text2)">Score: 0/4</div></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:20px;font-weight:700;margin-bottom:16px">Passage 2: The Science of Memory (TFNG + Sentence Completion)</h3>
+    <div class="card"><p style="background:var(--bg2);padding:12px;border-radius:var(--radius-sm);margin-bottom:12px;font-size:13px"><strong>Passage:</strong> Memory is not a single process but involves three stages: encoding, storage, and retrieval. Encoding converts sensory input into a mental representation. Storage maintains information over time, while retrieval accesses stored information when needed. There are two main types of memory: short-term memory, which holds about 7 items for 15-30 seconds, and long-term memory, which can store unlimited information indefinitely. Sleep plays a crucial role in memory consolidation. During deep sleep, the brain transfers information from short-term to long-term storage. Studies show that students who sleep after studying retain 40% more information than those who stay awake. Emotional events are remembered more vividly because the amygdala enhances memory consolidation during emotional arousal.</p>
+    <p style="font-weight:600;margin-bottom:6px;font-size:13px">Questions 5-8: TFNG</p>
+    <p style="margin-bottom:4px;font-size:12px"><strong>5.</strong> Memory involves encoding, storage, and retrieval.</p><div style="display:flex;gap:6px;margin-bottom:6px"><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,0,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,0,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,0,2)">NG</button></div>
+    <p style="margin-bottom:4px;font-size:12px"><strong>6.</strong> Short-term memory holds approximately 15 items.</p><div style="display:flex;gap:6px;margin-bottom:6px"><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,1,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,1,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,1,2)">NG</button></div>
+    <p style="margin-bottom:4px;font-size:12px"><strong>7.</strong> Students retain 40% more after sleeping.</p><div style="display:flex;gap:6px;margin-bottom:6px"><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,2,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,2,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,2,2)">NG</button></div>
+    <p style="margin-bottom:4px;font-size:12px"><strong>8.</strong> The amygdala enhances emotional memory.</p><div style="display:flex;gap:6px;margin-bottom:6px"><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,3,0)">True</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,3,1)">False</button><button class="btn btn-outline btn-sm" onclick="checkTFNG2(this,3,2)">NG</button></div>
+    <p style="font-weight:600;margin-bottom:6px;font-size:13px">Questions 9-13: Complete sentences (ONE WORD)</p>
+    <p style="font-size:12px">9. The three stages of memory are encoding, storage, and <input type="text" onchange="checkFill(this,'retrieval')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:90px;font-size:12px">.</p>
+    <p style="font-size:12px">10. Short-term memory holds about <input type="text" onchange="checkFill(this,'7')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:40px;font-size:12px"> items.</p>
+    <p style="font-size:12px">11. During deep sleep, the brain transfers memories to <input type="text" onchange="checkFill(this,'long-term')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:90px;font-size:12px"> storage.</p>
+    <div id="readingScore2" style="font-size:13px;color:var(--text2);margin-top:8px">Score: 0/9</div></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:20px;font-weight:700;margin-bottom:16px">Passage 3: Urban Farming Revolution (Matching Information + Summary)</h3>
+    <div class="card"><p style="background:var(--bg2);padding:12px;border-radius:var(--radius-sm);margin-bottom:12px;font-size:13px"><strong>A:</strong> Urban farming has grown rapidly from rooftop gardens to vertical farms. Singapore now produces 10% of its vegetables through urban agriculture.<br><strong>B:</strong> Environmental benefits include reduced transport emissions, organic waste composting, and rainwater capture. Cities with urban farms report 15% lower local food miles.<br><strong>C:</strong> Economically, urban farming creates jobs. A Detroit study found urban agriculture generated $20M in annual sales. Property values near community gardens rise by up to 15%.<br><strong>D:</strong> Challenges include soil contamination from industrial pollutants, limited land access, and high startup costs. Solutions include hydroponics and government subsidies.</p>
+    <p style="font-weight:600;margin-bottom:6px;font-size:13px">Questions 14-18: Which paragraph (A-D)?</p>
+    <div style="font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:10px">
+      <div>14. Economic benefits: <select onchange="checkMatchR(this,'C')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px"><option value="">-</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div>
+      <div>15. Environmental impact: <select onchange="checkMatchR(this,'B')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px"><option value="">-</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div>
+      <div>16. Examples of methods: <select onchange="checkMatchR(this,'A')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px"><option value="">-</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div>
+      <div>17. Obstacles faced: <select onchange="checkMatchR(this,'D')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px"><option value="">-</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div>
+      <div>18. Job creation data: <select onchange="checkMatchR(this,'C')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px"><option value="">-</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div>
+    </div>
+    <p style="font-weight:600;margin-bottom:6px;font-size:13px">Questions 19-22: Summary (NO MORE THAN TWO WORDS)</p>
+    <p style="font-size:12px">Urban farms include rooftop gardens and (19) <input type="text" onchange="checkFill2(this,'vertical farms')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:100px;font-size:12px">. Benefits include fewer (20) <input type="text" onchange="checkFill2(this,'transport emissions')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:110px;font-size:12px"> and water capture. Challenges include soil (21) <input type="text" onchange="checkFill2(this,'contamination')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:100px;font-size:12px"> and high (22) <input type="text" onchange="checkFill2(this,'startup costs')" style="padding:2px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);width:100px;font-size:12px">.</p>
+      <div id="readingScore3" style="font-size:13px;color:var(--text2);margin-top:8px">Score: 0/9</div></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Reading Self-Assessment</h3>
+    <div class="card"><p>Rate your confidence with each question type (1=need practice, 5=very confident):</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;font-size:13px">
+      <div>TFNG: <select id="saTFNG" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div>Headings: <select id="saHead" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div>Summary: <select id="saSum" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div>MCQ: <select id="saMCQ" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div>Matching: <select id="saMatch" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div>Completion: <select id="saComp" style="padding:4px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text)"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    </div>
+    <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="saveAssessment()">Save Assessment</button></div>
+  </div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>False = passage directly contradicts. Not Given = neither confirmed nor denied. If you can't find evidence in 2 minutes, mark NG and move on. For matching headings, read the first and last sentence of each paragraph first.</p></div>
+  <div class="mistake-box fade-up"><div class="mistake-label">Common Mistakes</div><ul class="list-cross"><li>Over 20 min on one passage</li><li>Confusing False with Not Given</li><li>No skimming before scanning</li><li>Exceeding word limits</li></ul></div>
+</section>
+<section id="writing" class="section">
+  <h2 class="section-title">Writing</h2>
+  <p class="section-subtitle">60 min - Task 1 (150 words) + Task 2 (250 words)</p>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchWritingTab('task1',this)">Task 1 Academic</button>
+    <button class="tab-btn" onclick="switchWritingTab('task1gen',this)">Task 1 General</button>
+    <button class="tab-btn" onclick="switchWritingTab('task2',this)">Task 2 Essay</button>
+    <button class="tab-btn" onclick="switchWritingTab('descriptors',this)">Band Descriptors</button>
+  </div>
+  <div id="writingTask1" class="tab-content active fade-up">
+    <div class="grid-2">
+      <div class="card"><h3>Academic Task 1</h3><p>Describe visual data: line graph, bar chart, pie chart, table, process diagram, or map. At least 150 words.</p><p><strong>Structure:</strong> 1. Paraphrase question 2. Overview (key trend) 3-4. Detailed paragraphs with data.</p></div>
+      <div class="card"><h3>Key Vocabulary</h3><div style="display:flex;flex-wrap:wrap;gap:4px"><span class="colloc-item">rose steadily</span><span class="colloc-item">declined sharply</span><span class="colloc-item">remained stable</span><span class="colloc-item">peaked at</span><span class="colloc-item">fluctuated</span><span class="colloc-item">upward trend</span><span class="colloc-item">accounted for</span><span class="colloc-item">compared to</span><span class="colloc-item">whereas</span><span class="colloc-item">similarly</span></div></div>
+    </div>
+    <div class="card"><h4>Sample: Line Graph</h4><p style="font-size:13px;color:var(--text2);font-style:italic">"The line graph shows international tourist numbers to three Southeast Asian countries from 2010 to 2020. Overall, all three saw an upward trend, with Thailand consistently highest. Thailand rose from 15M to a peak of 38M in 2019 before falling to 35M in 2020. Vietnam tripled from 5M to 15M, while Indonesia grew gradually from 7M to 12M."</p></div>
+  </div>
+  <div id="writingTask1Gen" class="tab-content fade-up">
+    <div class="grid-2">
+      <div class="card"><h3>General Training Task 1: Letter</h3><p>Write a letter (formal, semi-formal, or informal). Types: complaint, request, invitation, apology, application, suggestion.</p><p><strong>Structure:</strong> Salutation, reason for writing, bullet points, appropriate closing.</p></div>
+      <div class="card"><h3>Tone Guide</h3><p><strong>Formal:</strong> Dear Sir/Madam, Yours faithfully. No contractions.<br><strong>Semi-formal:</strong> Dear Mr Smith, Kind regards.<br><strong>Informal:</strong> Dear John, Best wishes. Contractions OK.</p></div>
+    </div>
+    <div class="card"><h4>Sample: Formal Complaint</h4><p style="font-size:13px;color:var(--text2);font-style:italic">"Dear Sir or Madam, I am writing to express my dissatisfaction with a laptop purchased from your store on 12th January. The screen flickers intermittently, making it unusable. Despite contacting support twice, the issue remains. I request a replacement or full refund. Yours faithfully, James Mitchell"</p></div>
+  </div>
+  <div id="writingTask2" class="tab-content fade-up">
+    <div class="grid-2">
+      <div class="card"><h3>Task 2: Essay</h3><p>5 types: Opinion, Discussion, Problem/Solution, Advantages/Disadvantages, Two-part question. At least 250 words.</p><p><strong>Structure:</strong> Intro (40-50 words), Body 1 (90-100), Body 2 (90-100), Conclusion (30-40).</p></div>
+      <div class="card"><h3>Topic Generator</h3><p style="font-size:13px;margin-bottom:8px" id="topicDisplay">Click below for a random writing prompt.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary btn-sm" onclick="generateTopic(true)">Task 1 Academic</button><button class="btn btn-primary btn-sm" onclick="generateTopic(false)">Task 1 General</button><button class="btn btn-outline btn-sm" onclick="generateTopic(null,'task2')">Task 2 Essay</button></div></div>
+    </div>
+    <div class="card"><h4>Sample: Opinion Essay</h4><p style="font-size:13px;color:var(--text2);font-style:italic">"The question of free university education has sparked debate. While free tuition promotes equality, I believe a hybrid model is most practical. Free education in Germany and Norway shows it is feasible but taxpayer burden is significant. A co-funding model with subsidised tuition offers the best balance of accessibility and quality."</p></div>
+  </div>
+  <div id="writingDescriptors" class="tab-content fade-up">
+    <div class="table-wrap"><table><thead><tr><th>Band</th><th>Task Response</th><th>Coherence</th><th>Vocabulary</th><th>Grammar</th></tr></thead><tbody>
+    <tr><td>9</td><td>Fully addresses all parts</td><td>Seamless cohesion</td><td>Wide, precise, natural</td><td>Full flexibility, no errors</td></tr>
+    <tr><td>8</td><td>Covers all parts sufficiently</td><td>Well managed</td><td>Less common vocab</td><td>Majority error-free</td></tr>
+    <tr><td>7</td><td>Clear position throughout</td><td>Clear progression</td><td>Good range</td><td>Frequent error-free</td></tr>
+    <tr><td>6</td><td>All parts addressed unevenly</td><td>Adequate cohesion</td><td>Adequate range</td><td>Mix of structures</td></tr>
+    <tr><td>5</td><td>Partially addressed</td><td>May lack logic</td><td>Limited, repetition</td><td>Limited, errors</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="fade-up" style="margin-top:24px">
+    <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Word Counter & Save</h3>
+    <div class="card word-counter">
+      <textarea id="writingInput" placeholder="Write your essay, letter, or graph description here..."></textarea>
+      <div class="count-display"><span>Words: <strong id="wordCount">0</strong></span><span>Characters: <strong id="charCount">0</strong></span><span id="wordWarning" style="color:#ff5252;display:none">Need more: Task 1 150+ / Task 2 250+</span></div>
+      <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="saveWriting()">Save Draft</button>
+      <button class="btn btn-outline btn-sm" style="margin-top:8px" onclick="document.getElementById('writingInput').value='';countWords()">Clear</button>
+    </div>
+  </div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>Spend 5-8 minutes planning before writing. A well-organised essay scores higher than a longer but disorganised one.</p></div>
+  <div class="mistake-box fade-up"><div class="mistake-label">Common Mistakes</div><ul class="list-cross"><li>Not enough words</li><li>Memorised essays (capped at Band 5)</li><li>No overview in Task 1 Academic</li><li>Wrong register/tone</li></ul></div>
+</section>
+<section id="speaking" class="section">
+  <h2 class="section-title">Speaking</h2>
+  <p class="section-subtitle">11-14 min, 3 parts, face-to-face with certified examiner</p>
+  <div class="grid-3 fade-up">
+    <div class="card"><span class="part-badge p1">Part 1</span><h3>Introduction & Interview</h3><p>4-5 min. General questions on work/study, hometown, hobbies, family, food, travel.</p><p><strong>Tip:</strong> Never answer yes/no. Extend with reason + example.</p></div>
+    <div class="card"><span class="part-badge p2">Part 2</span><h3>Individual Long Turn</h3><p>3-4 min. Cue card with 1 min prep + 2 min speaking. Use PPP structure: Past, Present, Perspective.</p></div>
+    <div class="card"><span class="part-badge p3">Part 3</span><h3>Two-Way Discussion</h3><p>4-5 min. Abstract questions on Part 2 topic. Use discourse markers: on the one hand, nevertheless, from my perspective.</p></div>
+  </div>
+  <div class="fade-up" style="margin-top:28px">
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:12px">Cue Card Bank (100 Topics)</h3>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Click any card to practice with the built-in timer.</p>
+    <div class="cue-grid" id="cueCardGrid"></div>
+  </div>
+  <div class="cue-modal" id="cueModal">
+    <div class="cue-modal-content">
+      <div style="display:flex;justify-content:space-between"><h3 id="cueTitle">Cue Card</h3><button class="btn-bookmark" id="cueBookmarkBtn" onclick="toggleCueBookmark(this,currentCue)">&#9734;</button></div>
+      <p style="color:var(--text2);margin:12px 0" id="cuePrompt">Prompt</p>
+      <div class="timer-phase" id="cuePhase">Press Start — 1 min prep</div>
+      <div class="cue-timer" id="cueTimer">01:00</div>
+      <div class="timer-controls"><button class="btn btn-primary" id="cueStartBtn" onclick="startCueTimer()">Start</button><button class="btn btn-outline" onclick="resetCueTimer()">Reset</button><button class="btn btn-outline" onclick="closeCueModal()">Close</button></div>
+    </div>
+  </div>
+  <div class="grid-2 fade-up" style="margin-top:24px">
+    <div class="card"><h3>Band Descriptors</h3><div class="table-wrap"><table><thead><tr><th>Band</th><th>Fluency</th><th>Vocabulary</th><th>Grammar</th><th>Pronunciation</th></tr></thead><tbody><tr><td>9</td><td>Native-like fluency</td><td>Precise, idiomatic</td><td>Consistently accurate</td><td>Perfect</td></tr><tr><td>7</td><td>Speaks at length</td><td>Good range</td><td>Frequent error-free</td><td>Clear</td></tr><tr><td>6</td><td>Willing to speak</td><td>Adequate range</td><td>Mix, some errors</td><td>Understandable</td></tr><tr><td>5</td><td>Frequent pauses</td><td>Limited, repetition</td><td>Limited, frequent errors</td><td>L1 features</td></tr></tbody></table></div></div>
+    <div class="card"><h3>Pronunciation Tips</h3><ul class="list-check"><li>Word stress: REcord vs reCORD</li><li>Sentence stress: content words carry meaning</li><li>TH sounds: voiced in "the", unvoiced in "think"</li><li>Vowel length: "ship" vs "sheep"</li><li>Weak forms: "I can [kən] swim"</li><li>Connected speech: "going to" to "gonna"</li></ul></div>
+  </div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>In Part 2, use the PPP technique: Past experience, Present details, Personal Perspective. This fills 2 minutes naturally.</p></div>
+  <div class="mistake-box fade-up"><div class="mistake-label">Common Mistakes</div><ul class="list-cross"><li>One-word answers in Part 1</li><li>Stopping before 2 min in Part 2</li><li>Memorised responses</li><li>Going off-topic in Part 3</li></ul></div>
+</section>
+<section id="vocabulary" class="section">
+  <h2 class="section-title">Vocabulary</h2>
+  <p class="section-subtitle">500+ topic-specific words with definitions, examples, and collocations</p>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchVocabTab('Environment',this)">Environment</button>
+    <button class="tab-btn" onclick="switchVocabTab('Health',this)">Health</button>
+    <button class="tab-btn" onclick="switchVocabTab('Technology',this)">Technology</button>
+    <button class="tab-btn" onclick="switchVocabTab('Education',this)">Education</button>
+    <button class="tab-btn" onclick="switchVocabTab('Crime',this)">Crime</button>
+    <button class="tab-btn" onclick="switchVocabTab('Work',this)">Work</button>
+    <button class="tab-btn" onclick="switchVocabTab('Society',this)">Society</button>
+    <button class="tab-btn" onclick="switchVocabTab('Media',this)">Media</button>
+  </div>
+  <div id="vocabEnvironment" class="tab-content active fade-up"></div>
+  <div id="vocabHealth" class="tab-content fade-up"></div>
+  <div id="vocabTechnology" class="tab-content fade-up"></div>
+  <div id="vocabEducation" class="tab-content fade-up"></div>
+  <div id="vocabCrime" class="tab-content fade-up"></div>
+  <div id="vocabWork" class="tab-content fade-up"></div>
+  <div id="vocabSociety" class="tab-content fade-up"></div>
+  <div id="vocabMedia" class="tab-content fade-up"></div>
+  <div class="fade-up" style="margin-top:28px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Advanced Flashcards</h3><p style="font-size:13px;color:var(--text2);margin-bottom:12px">Click to flip. Star to save to your library.</p><div class="grid-4" id="flashcardGrid"></div></div>
+  <div class="fade-up" style="margin-top:28px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Vocab Quiz</h3><div class="card" id="vocabQuizContainer"><p style="margin-bottom:12px"><strong id="vocabQText">Loading...</strong></p><div id="vocabQOptions"></div><div id="vocabQFeedback" style="margin-top:8px;font-size:13px"></div><button class="btn btn-primary btn-sm" onclick="nextVocabQuestion()">Next</button><span style="margin-left:12px;font-size:13px;color:var(--text2)" id="vocabQScore">0/0</span></div></div>
+</section>
+<section id="grammar" class="section">
+  <h2 class="section-title">Grammar</h2>
+  <p class="section-subtitle">30+ rules with IELTS-focused examples and interactive exercises</p>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchGrammarTab('tenses',this)">Tenses</button>
+    <button class="tab-btn" onclick="switchGrammarTab('conditionals',this)">Conditionals</button>
+    <button class="tab-btn" onclick="switchGrammarTab('passive',this)">Passive</button>
+    <button class="tab-btn" onclick="switchGrammarTab('cohesion',this)">Cohesion</button>
+    <button class="tab-btn" onclick="switchGrammarTab('exercises',this)">Exercises</button>
+  </div>
+  <div id="grammarTenses" class="tab-content active fade-up"><h3 style="font-size:18px;font-weight:700;margin-bottom:16px">Essential Tenses</h3><div class="grid-2" id="tensesContent"></div></div>
+  <div id="grammarConditionals" class="tab-content fade-up"><h3 style="font-size:18px;font-weight:700;margin-bottom:16px">Conditionals</h3><div class="grid-2" id="conditionalsContent"></div></div>
+  <div id="grammarPassive" class="tab-content fade-up"><h3 style="font-size:18px;font-weight:700;margin-bottom:16px">Passive Voice</h3><div class="grid-2" id="passiveContent"></div></div>
+  <div id="grammarCohesion" class="tab-content fade-up"><h3 style="font-size:18px;font-weight:700;margin-bottom:16px">Cohesion Devices</h3><div class="grid-2" id="cohesionContent"></div></div>
+  <div id="grammarExercises" class="tab-content fade-up"><h3 style="font-size:18px;font-weight:700;margin-bottom:16px">30 Grammar Questions</h3><div id="grammarQuizContainer"></div></div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>Use 60% complex sentences in Writing Task 2. Use subordinate clauses (although, whereas, despite) naturally.</p></div>
+</section>
+<section id="practice" class="section">
+  <h2 class="section-title">Practice Tests</h2>
+  <p class="section-subtitle">Full mock tests with real-time timer and answer tracking</p>
+  <div class="grid-3 fade-up">
+    <div class="card" style="text-align:center;padding:20px"><h3 style="font-size:32px;color:var(--accent)">40</h3><p>Reading Questions</p><span class="tag">60 min</span></div>
+    <div class="card" style="text-align:center;padding:20px"><h3 style="font-size:32px;color:var(--accent)">40</h3><p>Listening Questions</p><span class="tag">30+10 min</span></div>
+    <div class="card" style="text-align:center;padding:20px"><h3 style="font-size:32px;color:var(--accent)">2</h3><p>Writing Tasks</p><span class="tag">60 min</span></div>
+  </div>
+  <div class="fade-up"><div class="card" style="text-align:center;padding:32px"><h3>Mock Test Timer</h3><div class="timer-display" id="practiceTimer">60:00</div><div class="timer-controls"><button class="btn btn-primary" onclick="startPracticeTimer()">Start</button><button class="btn btn-outline" onclick="pausePracticeTimer()">Pause</button><button class="btn btn-outline" onclick="resetPracticeTimer()">Reset</button></div></div></div>
+  <div class="grid-2 fade-up" style="margin-top:24px">
+    <div class="card"><h3>Answer Sheet</h3><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px" id="answerSheet"></div></div>
+    <div class="card"><h3>Test Tips</h3><ul class="list-check"><li>Simulate exam conditions</li><li>Time yourself strictly</li><li>Review every mistake</li><li>Track weekly progress</li><li>Build up to full 2h45m tests</li></ul></div>
+  </div>
+</section>
+<section id="mylibrary" class="section">
+  <h2 class="section-title">My Library</h2>
+  <p class="section-subtitle">Your personal study hub — saved words, drafts, test history, and progress</p>
+  <div class="fade-up" style="margin-bottom:20px"><div class="streak-bar"><span style="font-size:28px">&#128293;</span><span class="streak-num" id="streakCount">0</span><span style="font-size:12px;color:var(--text2)">day streak</span><span style="flex:1"></span><span style="font-size:12px;color:var(--text2)" id="lastVisit">First visit</span></div></div>
+  <div class="fade-up"><div class="lib-filter-bar" id="libFilters"><button class="lib-filter-btn active" data-filter="all" onclick="filterLibrary('all',this)">All</button><button class="lib-filter-btn" data-filter="vocab" onclick="filterLibrary('vocab',this)">Vocab</button><button class="lib-filter-btn" data-filter="flashcard" onclick="filterLibrary('flashcard',this)">Flashcards</button><button class="lib-filter-btn" data-filter="cue" onclick="filterLibrary('cue',this)">Cue Cards</button><button class="lib-filter-btn" data-filter="writing" onclick="filterLibrary('writing',this)">Writing</button><button class="lib-filter-btn" data-filter="test" onclick="filterLibrary('test',this)">Tests</button></div>
+    <div class="lib-grid">
+      <div class="lib-card" onclick="switchSection('vocabulary')"><div class="lib-icon">&#128218;</div><h4>Vocabulary</h4><p>8 topics with bookmarking</p><span class="lib-count" id="libVocabCount">0 saved</span></div>
+      <div class="lib-card" onclick="switchSection('grammar')"><div class="lib-icon">&#128221;</div><h4>Grammar</h4><p>30+ rules + 30 quiz questions</p><span class="lib-count">Complete lessons</span></div>
+      <div class="lib-card" onclick="switchSection('speaking')"><div class="lib-icon">&#128172;</div><h4>Cue Cards</h4><p>100 topics with timer</p><span class="lib-count" id="libCueCount">0 bookmarked</span></div>
+      <div class="lib-card" onclick="switchSection('vocabulary')"><div class="lib-icon">&#128161;</div><h4>Flashcards</h4><p>Advanced vocab cards</p><span class="lib-count" id="libFlashCount">0 saved</span></div>
+      <div class="lib-card" onclick="switchSection('writing')"><div class="lib-icon">&#9998;</div><h4>Writing Drafts</h4><p>Saved essays + letters</p><span class="lib-count" id="libWritingCount">0 drafts</span></div>
+      <div class="lib-card" onclick="switchSection('practice')"><div class="lib-icon">&#128203;</div><h4>Test Results</h4><p>Mock test history</p><span class="lib-count" id="libTestCount">0 tests</span></div>
+    </div>
+  </div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Performance</h3><div class="grid-2"><div class="card"><h4>Sections Done</h4><div style="font-size:36px;font-weight:900;color:var(--accent)" id="perfSections">0/12</div><div class="progress-bar"><div class="progress-fill" id="perfSectionsBar" style="width:0%"></div></div></div><div class="card"><h4>Total Stats</h4><div style="display:flex;gap:16px;flex-wrap:wrap"><div><span style="font-size:24px;font-weight:800;color:var(--accent)" id="perfVocab">0</span><br><span style="font-size:11px;color:var(--text2)">Vocab saved</span></div><div><span style="font-size:24px;font-weight:800;color:var(--accent)" id="perfWriting">0</span><br><span style="font-size:11px;color:var(--text2)">Drafts</span></div><div><span style="font-size:24px;font-weight:800;color:var(--accent)" id="perfTests">0</span><br><span style="font-size:11px;color:var(--text2)">Tests</span></div><div><span style="font-size:24px;font-weight:800;color:var(--accent)" id="perfStreak">0</span><br><span style="font-size:11px;color:var(--text2)">Day streak</span></div></div></div></div></div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Saved Vocabulary</h3><div id="savedVocabContainer" style="font-size:13px;color:var(--text2)">Loading...</div></div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Writing History</h3><div id="writingHistoryContainer"></div></div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Test History</h3><div id="testHistoryContainer"></div></div>
+</section>
+<section id="resources" class="section">
+  <h2 class="section-title">Books & Resources</h2>
+  <p class="section-subtitle">Every IELTS resource you need — click any card to visit the website</p>
+  <div class="fade-up" style="margin-bottom:24px">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchResTab('official',this)">Official</button>
+      <button class="tab-btn" onclick="switchResTab('books',this)">Books</button>
+      <button class="tab-btn" onclick="switchResTab('apps',this)">Apps</button>
+      <button class="tab-btn" onclick="switchResTab('youtube',this)">YouTube</button>
+      <button class="tab-btn" onclick="switchResTab('websites',this)">Websites</button>
+      <button class="tab-btn" onclick="switchResTab('checklist',this)">Checklist</button>
+    </div>
+    <div id="resOfficial" class="tab-content active">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Official IELTS Resources</h3>
+      <div class="grid-2">
+        <a class="card" href="https://ielts.org" target="_blank" style="display:block;text-decoration:none;color:inherit"><h3>IELTS.org &#8599;</h3><p>Official IELTS website. Test centres, registration, sample tests.</p><span class="tag">Official</span> <span class="tag tag-blue">Free</span></a>
+        <a class="card" href="https://takeielts.britishcouncil.org" target="_blank" style="display:block;text-decoration:none;color:inherit"><h3>British Council &#8599;</h3><p>Free webinars, courses, practice tests. Road to IELTS course.</p><span class="tag">Official</span> <span class="tag tag-green">Free</span></a>
+        <a class="card" href="https://ielts.idp.com" target="_blank" style="display:block;text-decoration:none;color:inherit"><h3>IDP IELTS &#8599;</h3><p>Practice tests, tips, computer-delivered IELTS.</p><span class="tag">Official</span> <span class="tag tag-green">Free</span></a>
+        <a class="card" href="https://ielts.org/about-ielts/ielts-on-computer" target="_blank" style="display:block;text-decoration:none;color:inherit"><h3>IELTS on Computer &#8599;</h3><p>Free computer-based test simulator.</p><span class="tag">Official</span> <span class="tag tag-blue">Free</span></a>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Cambridge IELTS 1-18 Guide</h3><div class="table-wrap"><table><thead><tr><th>Book</th><th>Content</th><th>Best For</th></tr></thead><tbody>
+        <tr><td><strong>Cambridge 18</strong></td><td>4 Academic + 2 General</td><td>Latest exam trends</td></tr>
+        <tr><td><strong>Cambridge 17</strong></td><td>4 Academic + 2 General</td><td>Current styles</td></tr>
+        <tr><td><strong>Cambridge 16</strong></td><td>4 Academic + 2 General</td><td>General practice</td></tr>
+        <tr><td><strong>Cambridge 15</strong></td><td>4 Academic + 2 General</td><td>Skill building</td></tr>
+        <tr><td><strong>Cambridge 14</strong></td><td>4 Academic + 2 General</td><td>Extra practice</td></tr>
+        <tr><td><strong>Cambridge 11-13</strong></td><td>4 Academic each</td><td>Drilling</td></tr>
+        <tr><td><strong>Cambridge 1-10</strong></td><td>4 Academic each</td><td>Basic skills</td></tr>
+      </tbody></table></div></div>
+    </div>
+    <div id="resBooks" class="tab-content">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Recommended Books</h3>
+      <div class="grid-2">
+        <a class="card" href="https://www.google.com/search?q=Official+Cambridge+Guide+to+IELTS" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Official Cambridge Guide &#8599;</h4><p>8 practice tests, DVD-ROM, step-by-step guidance.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Barrons+IELTS+Superpack" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Barron's Superpack &#8599;</h4><p>4 books: strategies, exams, vocabulary + audio.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Target+Band+7+Simone+Braverman" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Target Band 7 &#8599;</h4><p>For candidates aiming Band 7+. High-scoring strategies.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Collins+IELTS+series" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Collins IELTS Series &#8599;</h4><p>Separate skill books + practice tests.</p></a>
+        <a class="card" href="https://www.google.com/search?q=IELTS+Trainer+Cambridge" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Trainer &#8599;</h4><p>6 practice tests with detailed explanations.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Grammar+for+IELTS+Cambridge" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Grammar for IELTS &#8599;</h4><p>Targeted grammar with IELTS exercises.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Vocabulary+for+IELTS+Cambridge" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Vocabulary for IELTS &#8599;</h4><p>20 topic units with exercises.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Common+Mistakes+at+IELTS" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Common Mistakes at IELTS &#8599;</h4><p>Fixes frequent candidate errors.</p></a>
+      </div>
+    </div>
+    <div id="resApps" class="tab-content">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Mobile Apps</h3>
+      <div class="grid-2">
+        <a class="card" href="https://www.google.com/search?q=IELTS+Prep+App+British+Council" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Prep App &#8599;</h4><p>Official British Council. Free practice tests + tips.</p></a>
+        <a class="card" href="https://www.google.com/search?q=ELSA+Speak+app" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>ELSA Speak &#8599;</h4><p>AI pronunciation coach with real-time feedback.</p></a>
+        <a class="card" href="https://www.google.com/search?q=Quizlet+app" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Quizlet &#8599;</h4><p>Custom flashcards with spaced repetition. Free.</p></a>
+        <a class="card" href="https://www.google.com/search?q=BBC+Learning+English+app" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>BBC Learning English &#8599;</h4><p>Daily lessons, pronunciation, grammar. Free.</p></a>
+      </div>
+    </div>
+    <div id="resYoutube" class="tab-content">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">YouTube Channels</h3>
+      <div class="grid-2">
+        <a class="card" href="https://www.youtube.com/@EnglishSpeakingSuccess" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>English Speaking Success &#8599;</h4><p>1M+ subs. Speaking mock tests + vocabulary.</p></a>
+        <a class="card" href="https://www.youtube.com/@IELTSAdvantage" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Advantage &#8599;</h4><p>600K+ subs. All sections, band 9 examples.</p></a>
+        <a class="card" href="https://www.youtube.com/@ieltsliz" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Liz &#8599;</h4><p>2M+ subs. Topic ideas + band 9 samples.</p></a>
+        <a class="card" href="https://www.youtube.com/@E2IELTS" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>E2 IELTS &#8599;</h4><p>500K+ subs. Full course + mock tests.</p></a>
+      </div>
+    </div>
+    <div id="resWebsites" class="tab-content">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Essential Websites</h3>
+      <div class="grid-2">
+        <a class="card" href="https://roadtoielts.britishcouncil.org" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Road to IELTS &#8599;</h4><p>60+ hours free content + practice tests.</p></a>
+        <a class="card" href="https://www.ieltsliz.com" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Liz &#8599;</h4><p>Free lessons, tips, topic ideas.</p></a>
+        <a class="card" href="https://www.ieltsadvantage.com" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Advantage &#8599;</h4><p>Strategies for all skills.</p></a>
+        <a class="card" href="https://www.ielts-simon.com" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>IELTS Simon &#8599;</h4><p>Former examiner. Daily tips, Writing focus.</p></a>
+        <a class="card" href="https://www.bbc.co.uk/learningenglish" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>BBC Learning English &#8599;</h4><p>General English improvement. Free.</p></a>
+        <a class="card" href="https://www.examenglish.com/IELTS" target="_blank" style="display:block;text-decoration:none;color:inherit"><h4>Exam English &#8599;</h4><p>Free practice tests with instant scoring.</p></a>
+      </div>
+    </div>
+    <div id="resChecklist" class="tab-content">
+      <div class="card"><h3>Exam Day Checklist</h3><p>Click to prepare. Ensure you have everything before test day.</p><div class="grid-3"><div><h4 style="font-size:14px;color:var(--accent)">Documents</h4><ul class="list-check"><li>Passport or national ID</li><li>Exam confirmation letter</li><li>Additional ID if required</li></ul></div><div><h4 style="font-size:14px;color:var(--accent)">Bring</h4><ul class="list-check"><li>HB pencils (3+)</li><li>Eraser + sharpener</li><li>Pen for Writing</li><li>Water bottle</li></ul></div><div><h4 style="font-size:14px;color:var(--accent)">Not Allowed</h4><ul class="list-cross"><li>Phones, smart watches, electronics</li><li>Food, gum, own notes</li><li>Correction fluid</li></ul></div></div></div>
+    </div>
+  </div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>Cambridge 16-18 are most representative of the current exam. Start with Book 18, work backward. Save newest for timed mock tests.</p></div>
+</section>
+<section id="studyplans" class="section">
+  <h2 class="section-title">Study Plans</h2>
+  <p class="section-subtitle">Structured paths for every timeline. Click a plan and follow the daily schedule.</p>
+  <div class="grid-3 fade-up">
+    <div class="card plan-card" style="border-color:rgba(0,212,255,0.2)"><div class="plan-duration">Intensive</div><div class="plan-title">1 Month</div><div class="plan-price" style="font-size:12px;color:var(--text2);margin:8px 0">+0.5 to 1.0 band</div><ul class="plan-features"><li>2 hrs/day, 6 days/week</li><li>Complete Cambridge 18</li><li>Daily: 30 vocab words</li><li>3 full mock tests</li><li>Speaking: 30 min/day</li><li>Writing: 2 tasks/day</li></ul></div>
+    <div class="card plan-card" style="border-color:var(--accent);border-width:2px"><div class="plan-duration" style="color:var(--accent)">Most Popular</div><div class="plan-title">3 Months</div><div class="plan-price" style="font-size:12px;color:var(--text2);margin:8px 0">+1.0 to 1.5 bands</div><ul class="plan-features"><li>1-1.5 hrs/day, 5 days/wk</li><li>Cambridge 16-18</li><li>Daily: 20 vocab words</li><li>6 full mock tests</li><li>Speaking: 20 min/day</li><li>Writing: 4 tasks/week</li></ul></div>
+    <div class="card plan-card" style="border-color:rgba(0,212,255,0.2)"><div class="plan-duration">Comprehensive</div><div class="plan-title">6 Months</div><div class="plan-price" style="font-size:12px;color:var(--text2);margin:8px 0">+1.5 to 2.5 bands</div><ul class="plan-features"><li>45 min/day, 5 days/wk</li><li>Cambridge 14-18</li><li>Daily: 15 vocab words</li><li>10 full mock tests</li><li>Speaking: 15 min/day</li><li>Writing: 3 tasks/week</li></ul></div>
+  </div>
+  <div class="fade-up" style="margin-top:32px"><h3 style="font-size:20px;font-weight:700;margin-bottom:16px">3-Month Timeline</h3><div class="card"><div class="timeline">
+    <div class="timeline-item"><div class="date">Month 1</div><h4>Weeks 1-2: Foundation</h4><p>Take diagnostic test. Learn format. Start vocabulary (Environment, Health). Grammar review: Present/Past tenses. Listening Section 1-2. Skimming and scanning techniques.</p></div>
+    <div class="timeline-item"><div class="date">Month 1</div><h4>Weeks 3-4: Building</h4><p>Writing Task 1 structure. Speaking Part 1 practice. Listening Sections 3-4. Reading: TFNG and headings. Vocabulary: Technology, Education. Start error log.</p></div>
+    <div class="timeline-item"><div class="date">Month 2</div><h4>Weeks 5-6: Intermediate</h4><p>Writing Task 2 all types. Speaking Part 2 cue card practice. Full Listening tests. All reading question types. Vocabulary: Crime, Work. Grammar: Conditionals, Passive.</p></div>
+    <div class="timeline-item"><div class="date">Month 2</div><h4>Weeks 7-8: Advanced</h4><p>Timed writing. Speaking Part 3 discussions. Full mock tests weekly. Deep error analysis. Vocabulary: Society, Media. Pronunciation focus.</p></div>
+    <div class="timeline-item"><div class="date">Month 3</div><h4>Weeks 9-10: Simulation</h4><p>Full mock tests (2/week). Band tracking. Target weak areas. Refine essay structures. Record and self-evaluate speaking.</p></div>
+    <div class="timeline-item"><div class="date">Month 3</div><h4>Weeks 11-12: Final</h4><p>Review strategies. Final mock test. Rest and confidence. Exam day prep. Light revision only.</p></div>
+  </div></div></div>
+  <div class="fade-up" style="margin-top:24px"><h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Sample Week (Month 1, Week 1)</h3><div class="grid-3">
+    <div class="study-card"><h4>Mon - Listening</h4><ul class="task-list"><li>Section 1 practice</li><li>Form completion strategy</li><li>20 Environment words</li><li>1 graph description</li></ul></div>
+    <div class="study-card"><h4>Tue - Reading</h4><ul class="task-list"><li>1 passage skimming</li><li>TFNG practice (10 Qs)</li><li>Present tense grammar</li><li>Speaking Part 1 practice</li></ul></div>
+    <div class="study-card"><h4>Wed - Writing</h4><ul class="task-list"><li>Task 1 structure review</li><li>Overview paragraph practice</li><li>20 Health words</li><li>Graph vocabulary</li></ul></div>
+    <div class="study-card"><h4>Thu - Speaking</h4><ul class="task-list"><li>10 Part 1 questions</li><li>Record self-evaluation</li><li>1 passage scanning</li><li>Past tense grammar</li></ul></div>
+    <div class="study-card"><h4>Fri - Grammar+Vocab</h4><ul class="task-list"><li>Grammar revision</li><li>50 word review</li><li>Section 2 listening</li><li>Speaking (hobbies)</li></ul></div>
+    <div class="study-card"><h4>Sat - Mock Test</h4><ul class="task-list"><li>Full listening test</li><li>Full reading test</li><li>Review all mistakes</li><li>Plan next week</li></ul></div>
+  </div></div>
+  <div class="tip-box fade-up"><div class="tip-label">Examiner Tip</div><p>Consistency beats intensity. 1 hour daily for 3 months beats 6 hours daily for 2 weeks. Language learning needs regular practice for your brain to absorb patterns.</p></div>
+</section>
+</main>
+<script>
+// ====== DATA ======
+var cueCards100=[];
+for(var ci=0;ci<100;ci++){
+  var t=["Describe a teacher who influenced you","Describe a memorable holiday","Describe your favourite book","Describe a person you admire","Describe a skill you want to learn","Describe a place you like to relax","Describe a gift you received","Describe a change in your life","Describe a piece of technology you use","Describe a meal you enjoyed","Describe a movie you watched recently","Describe a hobby you enjoy","Describe an important decision","Describe a famous person from your country","Describe a future goal","Describe a childhood memory","Describe your favourite season","Describe a historical event","Describe an advertisement you remember","Describe a piece of advice","Describe a wild animal","Describe your ideal house","Describe a festival in your country","Describe a time you helped someone","Describe a crowded place","Describe a traditional product","Describe a time you were late","Describe a company you admire","Describe a recent news story","Describe a place with beautiful scenery","Describe a special meal you cooked","Describe a polite person","Describe a long journey","Describe a game you enjoyed","Describe an invention","Describe your favourite subject","Describe a time you achieved something","Describe an energetic person","Describe a cultural event","Describe a time you were brave","Describe a shop you like","Describe a photo you like","Describe something you learned","Describe a plant or flower","Describe a sports event","Describe a subject you find difficult","Describe teamwork experience","Describe your favourite weather","Describe a piece of art","Describe a law in your country","Describe a time you complained","Describe a useful website","Describe an old person you know","Describe a successful business","Describe a place near water","Describe a uniform you wear","Describe a childhood game","Describe a musical instrument","Describe a city you visited","Describe a creative person","Describe a difficult choice","Describe an exciting book","Describe a family celebration","Describe a form of transport","Describe a good student","Describe a happy event","Describe an important letter","Describe a job you would like","Describe a kind person","Describe a leadership experience","Describe a modern building","Describe a natural disaster","Describe an outdoor activity","Describe a party you enjoyed","Describe a quiet place","Describe a rule at school","Describe a science subject","Describe a short trip","Describe a song that reminds you","Describe a successful person","Describe a team sport","Describe a television program","Describe a thing you bought","Describe a time you felt scared","Describe a time you forgot something","Describe a time you saved money","Describe a tradition in your family","Describe a type of food","Describe an unusual meal","Describe a way to stay healthy","Describe a website you use often","Describe a wild animal","Describe a work of art","Describe your dream job","Describe your first day at school","Describe your neighbourhood","Describe your primary school","Describe your favourite film","Describe a piece of good news","Describe a time you waited long","Describe an important event in your life"];
+  cueCards100.push({title:t[ci%t.length],prompt:"Describe it in detail. Include: what it is, when/where, who was involved, and why it is significant."});
+}
+var vocabTopics=["Environment","Health","Technology","Education","Crime","Work","Society","Media"];
+var vocabData={Environment:[
+{w:"biodiversity",m:"Variety of life in an ecosystem",e:"Deforestation threatens biodiversity."},{w:"sustainable",m:"Maintainable without depletion",e:"Solar power is sustainable."},{w:"ecosystem",m:"Community of interacting organisms",e:"Coral reefs are diverse ecosystems."},{w:"carbon footprint",m:"Total greenhouse gas emissions",e:"Reduce your carbon footprint."},{w:"renewable",m:"Not depleted by use",e:"Wind energy is renewable."},{w:"deforestation",m:"Large-scale forest clearing",e:"Amazon deforestation is alarming."},{w:"emissions",m:"Released gases",e:"Vehicle emissions cause pollution."},{w:"conservation",m:"Protection of resources",e:"Conservation protects species."},{w:"pollution",m:"Harmful substances",e:"Plastic pollution is a crisis."},{w:"climate change",m:"Long-term weather shifts",e:"Climate change causes extremes."},{w:"fossil fuels",m:"Fuels from organic remains",e:"Fossil fuels release CO2."},{w:"habitat",m:"Natural living environment",e:"Urbanisation destroys habitats."},{w:"organic",m:"Without chemicals",e:"Organic farming is better."},{w:"recycling",m:"Processing waste",e:"Recycling reduces landfill."},{w:"endangered",m:"At risk of extinction",e:"Many species are endangered."}],
+Health:[{w:"nutrition",m:"Providing food for health",e:"Good nutrition is vital."},{w:"obesity",m:"Excessive body fat",e:"Obesity rates have risen."},{w:"epidemic",m:"Widespread disease",e:"The obesity epidemic is serious."},{w:"mental health",m:"Psychological well-being",e:"Mental health awareness grows."},{w:"sedentary",m:"Physically inactive",e:"Sedentary lifestyles cause issues."},{w:"immunisation",m:"Making immune",e:"Immunisation saves millions."},{w:"diagnosis",m:"Identifying illness",e:"Early diagnosis saves lives."},{w:"therapy",m:"Medical treatment",e:"Therapy restores function."},{w:"chronic",m:"Long-term persistent",e:"Chronic diseases need management."},{w:"hygiene",m:"Cleanliness practices",e:"Hygiene prevents infection."},{w:"malnutrition",m:"Poor nutrition",e:"Malnutrition affects children."},{w:"preventive",m:"Stopping disease early",e:"Preventive care reduces costs."},{w:"symptom",m:"Sign of illness",e:"Fever is a symptom."},{w:"wellness",m:"Good health state",e:"Wellness programmes help."},{w:"treatment",m:"Medical care",e:"Early treatment improves recovery."}],
+Technology:[{w:"innovation",m:"New invention or method",e:"Innovation drives growth."},{w:"automation",m:"Machines doing tasks",e:"Automation boosts efficiency."},{w:"artificial intelligence",m:"Machine intelligence",e:"AI transforms healthcare."},{w:"digitalisation",m:"Converting to digital",e:"Digitalisation changed access."},{w:"algorithm",m:"Computational steps",e:"Algorithms personalise content."},{w:"cybersecurity",m:"System protection",e:"Cybersecurity is vital."},{w:"disruptive",m:"Causing major change",e:"Streaming disrupted TV."},{w:"encryption",m:"Secure data encoding",e:"Encryption protects privacy."},{w:"infrastructure",m:"Basic systems",e:"Digital infrastructure is key."},{w:"bandwidth",m:"Data transfer capacity",e:"Streaming needs bandwidth."},{w:"blockchain",m:"Digital ledger",e:"Blockchain powers crypto."},{w:"cloud computing",m:"Internet computing",e:"Cloud scales businesses."},{w:"e-commerce",m:"Online buying/selling",e:"E-commerce grew exponentially."},{w:"machine learning",m:"AI learning from data",e:"ML powers recommendations."},{w:"robotics",m:"Robot design",e:"Robotics transforms manufacturing."}],
+Education:[{w:"curriculum",m:"Course content plan",e:"The curriculum sets standards."},{w:"pedagogy",m:"Teaching method",e:"Pedagogy emphasises active learning."},{w:"assessment",m:"Learning evaluation",e:"Assessment provides feedback."},{w:"literacy",m:"Reading/writing ability",e:"Literacy improves employment."},{w:"tuition",m:"Teaching fees",e:"Tuition has risen."},{w:"scholarship",m:"Academic award",e:"She won a scholarship."},{w:"vocational",m:"Career training",e:"Vocational training teaches trades."},{w:"graduate",m:"Degree completer",e:"Graduates have better prospects."},{w:"undergraduate",m:"Bachelor student",e:"Undergrad programs are 3-4 years."},{w:"postgraduate",m:"Masters/PhD student",e:"Postgrad requires research."},{w:"seminar",m:"Discussion class",e:"Seminars develop thinking."},{w:"syllabus",m:"Course outline",e:"The syllabus lists readings."},{w:"academic",m:"Scholarly",e:"Academic writing is formal."}],
+Crime:[{w:"offence",m:"Legal violation",e:"Driving without insurance is an offence."},{w:"deterrent",m:"Crime prevention",e:"Long sentences deter crime."},{w:"rehabilitation",m:"Offender reintegration",e:"Rehab reduces reoffending."},{w:"verdict",m:"Court decision",e:"The jury reached a verdict."},{w:"juvenile",m:"Young offender",e:"Juveniles need different treatment."},{w:"recidivism",m:"Reoffending rate",e:"Recidivism is high."},{w:"custodial",m:"Prison-based",e:"Custodial sentences restrict liberty."},{w:"community service",m:"Unpaid work punishment",e:"Community service helps."},{w:"delinquency",m:"Youth crime",e:"Delinquency programs intervene early."},{w:"witness",m:"Evidence giver",e:"The witness testified."},{w:"prosecution",m:"Charging party",e:"Prosecution presented evidence."},{w:"defence",m:"Accused's case",e:"Defence argued insufficient proof."},{w:"appeal",m:"Higher court review",e:"The defendant appealed."},{w:"surveillance",m:"Close monitoring",e:"CCTV surveillance deters crime."}],
+Work:[{w:"remuneration",m:"Work payment",e:"Salary plus bonuses."},{w:"redundancy",m:"Job loss",e:"200 redundancies announced."},{w:"entrepreneurship",m:"Starting businesses",e:"Drives economic growth."},{w:"freelance",m:"Independent work",e:"Offers flexibility."},{w:"internship",m:"Work placement",e:"Provides experience."},{w:"pension",m:"Retirement income",e:"A valued benefit."},{w:"productivity",m:"Output efficiency",e:"Flexible hours improve it."},{w:"colleague",m:"Work associate",e:"Good colleagues increase satisfaction."},{w:"promotion",m:"Career advancement",e:"Hard work leads to promotion."},{w:"resignation",m:"Leaving notice",e:"She submitted her resignation."},{w:"recruitment",m:"Hiring process",e:"Recruitment is specialised."}],
+Society:[{w:"demographic",m:"Population characteristics",e:"Shifts affect labour markets."},{w:"multicultural",m:"Multiple cultures",e:"Benefits from diversity."},{w:"inequality",m:"Uneven distribution",e:"Income inequality widened."},{w:"integration",m:"Fitting into society",e:"Needs supportive policies."},{w:"urbanisation",m:"City growth",e:"Caused housing shortages."},{w:"migration",m:"Population movement",e:"Seeks better opportunities."},{w:"discrimination",m:"Unfair treatment",e:"Laws protect against bias."},{w:"welfare",m:"Government support",e:"Assists those in need."},{w:"community",m:"Shared group",e:"Communities support each other."},{w:"tradition",m:"Customs across time",e:"Traditions provide identity."},{w:"tolerance",m:"Accepting differences",e:"Enables coexistence."}],
+Media:[{w:"censorship",m:"Information suppression",e:"Restricts free access."},{w:"journalism",m:"News reporting",e:"Serves a watchdog role."},{w:"bias",m:"Unfair preference",e:"Can influence opinion."},{w:"propaganda",m:"Political promotion",e:"Used in wartime."},{w:"misinformation",m:"Unintentional false info",e:"Spreads on social media."},{w:"disinformation",m:"Deliberate false info",e:"Threatens democracy."},{w:"tabloid",m:"Sensational newspaper",e:"Prioritises entertainment."},{w:"broadcast",m:"TV/radio transmission",e:"Brings breaking news."},{w:"coverage",m:"Media reporting",e:"Election coverage was extensive."},{w:"editorial",m:"Opinion article",e:"Criticised government policy."},{w:"mass media",m:"Large-scale communication",e:"Shapes societal values."},{w:"viral",m:"Rapid online spread",e:"The video went viral."}]
+};
+var grammarTenses=[
+{t:"Present Simple",r:"Subject + base verb",u:"Facts, habits",e:"The chart shows CO2 emissions."},
+{t:"Present Continuous",r:"am/is/are + verb-ing",u:"Actions in progress",e:"The rate is rising."},
+{t:"Present Perfect",r:"have/has + past participle",u:"Past with present relevance",e:"There has been a shift."},
+{t:"Past Simple",r:"Subject + past tense",u:"Completed past actions",e:"In 2010, it stood at 20%."},
+{t:"Past Continuous",r:"was/were + verb-ing",u:"Past actions in progress",e:"Prices were rising."},
+{t:"Past Perfect",r:"had + past participle",u:"Before another past action",e:"By 2015, they had expanded."},
+{t:"Future (will)",r:"will + base verb",u:"Predictions",e:"Emissions will rise."},
+{t:"Future (going to)",r:"am/is/are + going to + verb",u:"Plans/evidence",e:"The government is going to invest."},
+{t:"Future Perfect",r:"will have + past participle",u:"Completed by future time",e:"By 2030, it will have finished."}
+];
+var grammarConditionals=[
+{t:"Zero",r:"If + present, present",u:"General truths",e:"If water reaches 100C, it boils."},
+{t:"First",r:"If + present, will + verb",u:"Real future",e:"If the trend continues, emissions will rise."},
+{t:"Second",r:"If + past, would + verb",u:"Unreal present",e:"If people used buses, air would improve."},
+{t:"Third",r:"If + had + pp, would have + pp",u:"Unreal past",e:"If they had acted, the crisis would have been avoided."},
+{t:"Mixed",r:"If + past perfect, would + verb",u:"Past condition/present result",e:"If the law had passed, we would see change."}
+];
+var grammarPassive=[
+{t:"Present Simple",r:"am/is/are + past participle",u:"General processes",e:"The data is collected annually."},
+{t:"Past Simple",r:"was/were + past participle",u:"Completed actions",e:"The experiment was conducted in 2019."},
+{t:"Present Perfect",r:"have/has been + past participle",u:"Changes over time",e:"New policies have been introduced."},
+{t:"Future",r:"will be + past participle",u:"Future events",e:"Results will be published."},
+{t:"With Modals",r:"modal + be + past participle",u:"Obligation",e:"Emissions must be reduced."}
+];
+var grammarCohesion=[
+{t:"Adding",r:"furthermore, moreover, in addition",u:"Building arguments",e:"Furthermore, the data suggests a correlation."},
+{t:"Contrasting",r:"however, although, nevertheless",u:"Opposing views",e:"Although it brings benefits, it also causes damage."},
+{t:"Examples",r:"for instance, for example, such as",u:"Illustrating points",e:"Many countries, such as Germany, adopted renewables."},
+{t:"Cause/Effect",r:"therefore, consequently, as a result",u:"Reasons and outcomes",e:"Consequently, biodiversity declined."},
+{t:"Sequencing",r:"firstly, secondly, finally",u:"Organising ideas",e:"Firstly, this essay examines causes."},
+{t:"Concluding",r:"in conclusion, to summarise",u:"Summarising",e:"In conclusion, benefits outweigh drawbacks."},
+{t:"Emphasising",r:"notably, significantly, crucially",u:"Highlighting",e:"Notably, the policy helped low-income groups."}
+];
+var grammarQuiz=[
+{q:"Students ___ increased over the decade.",o:["increases","has increased","is increasing","increased"],a:1},{q:"If I ___ you, I would accept.",o:["am","were","was","be"],a:1},{q:"The policy ___ next month.",o:["will implement","will be implemented","is implementing","implemented"],a:1},{q:"___ the evidence, he was guilty.",o:["Because","Due to","Despite","Although"],a:1},{q:"By 2030, the company ___ 50 countries.",o:["will expand","will have expanded","expands","expanded"],a:1},{q:"The experiment ___ in a lab.",o:["conducted","was conducted","conducting","conducts"],a:1},{q:"___ rising costs, we profited.",o:["Despite","Because","Therefore","Moreover"],a:0},{q:"She ___ since 2015.",o:["works","worked","has worked","is working"],a:2},{q:"If they ___ earlier, it would have helped.",o:["acted","had acted","act","would act"],a:1},{q:"The report ___ air quality improved.",o:["concludes","is concluded","concluding","concluded"],a:0},{q:"Students ___ on time score better.",o:["submit","submitted","submitting","submit"],a:0},{q:"The building ___ in 1920.",o:["built","was built","is built","builds"],a:1},{q:"___ the weather, the flight was delayed.",o:["Because","Due to","Even though","Since"],a:1},{q:"By the time we arrived, it ___.",o:["started","had started","has started","starting"],a:1},{q:"The more you practice, ___ you become.",o:["the better","better","the best","more better"],a:0},{q:"She wishes she ___ harder.",o:["studied","had studied","would study","studies"],a:1},{q:"A number of issues ___ arisen.",o:["have","has","is","are"],a:0},{q:"___ it rained, the concert continued.",o:["Because","In spite of","As a result","Due to"],a:1},{q:"The study, ___ lasted 5 years, was significant.",o:["that","which","what","who"],a:1},{q:"He would have passed if he ___ more.",o:["spent","had spent","would spend","has spent"],a:1},{q:"Organic food ___ without pesticides.",o:["grows","is grown","grew","grown"],a:1},{q:"___ the demand, housing prices rose.",o:["Because","Due to","Despite","Although"],a:1},{q:"It is the first time she ___ a conference.",o:["attends","attended","has attended","attending"],a:2},{q:"The government ___ more on transport.",o:["spend","spends","spending","should spend"],a:3},{q:"Had I known, I ___ earlier.",o:["would come","would have come","came","will come"],a:1},{q:"The film, ___ was acclaimed, flopped.",o:["that","which","what","who"],a:1},{q:"There ___ a significant increase.",o:["have","has","is","are"],a:1},{q:"The number of students ___ rising.",o:["is","are","were","have been"],a:0},{q:"It is essential that every student ___.",o:["understand","understands","understood","will understand"],a:0},{q:"The process ___ in three stages.",o:["describes","described","is described","describing"],a:2}
+];
+var flashcards=[
+{w:"Pivotal",m:"Of crucial importance",e:"Education plays a pivotal role."},{w:"Inevitable",m:"Certain to happen",e:"Change is inevitable."},{w:"Ameliorate",m:"To make better",e:"Policy can ameliorate inequality."},{w:"Pernicious",m:"Having harmful effect",e:"Pollution has pernicious effects."},{w:"Ubiquitous",m:"Present everywhere",e:"Smartphones are ubiquitous."},{w:"Paradigm",m:"Typical pattern",e:"The internet created a new paradigm."},{w:"Juxtapose",m:"Place for comparison",e:"The essay juxtaposes urban and rural."},{w:"Fastidious",m:"Very detailed",e:"A fastidious editor checks everything."},{w:"Ephemeral",m:"Short-lived",e:"Fashion is ephemeral."},{w:"Resilient",m:"Able to recover",e:"A resilient economy bounces back."},{w:"Disparity",m:"Great difference",e:"Growing disparity between rich and poor."},{w:"Pragmatic",m:"Practical approach",e:"We need a pragmatic solution."},{w:"Meticulous",m:"Very careful",e:"Meticulous record-keeping."},{w:"Scrutinise",m:"Examine carefully",e:"Auditors scrutinised the accounts."},{w:"Tenacious",m:"Persistent",e:"Tenacious negotiation succeeded."},{w:"Ambiguous",m:"More than one meaning",e:"The statement was ambiguous."},{w:"Concur",m:"Agree",e:"Experts concur on this point."},{w:"Deteriorate",m:"Become worse",e:"Air quality deteriorated."},{w:"Feasible",m:"Possible and practical",e:"The target is feasible."},{w:"Stringent",m:"Strict requirements",e:"Stringent regulations protect ecosystems."}
+];
+var TFNGanswers=[1,0,1,0];
+var TFNGscore=0,TFNGtotal=0;
+// writing topic data
+var task1Topics=["Graph showing international tourists 2010-2020","Chart of household expenditure by category","Table of temperature and rainfall in 4 cities","Diagram of plastic bottle recycling process","Bar chart of renewable energy by country","Pie chart of electricity sources","Line graph of unemployment rates 2000-2020","Map of town centre changes 2000-2020"];
+var task1GenTopics=["Letter complaining about hotel service","Letter to friend about moving to new city","Letter to transport company about lost item","Letter to friend visiting your country","Letter applying for part-time job","Letter to noisy neighbour","Thank-you letter for a party","Letter inviting to celebration","Complaint about online product","Letter to landlord about flat rental"];
+var task2Topics=["University should be free. Discuss.","Technology reduces job security. Agree?","Traffic congestion: causes and solutions","Environment: government vs individual responsibility","Widening gap between rich and poor","Social media: more negative than positive?","Longer prison sentences reduce crime?","Children spending too much on devices","Globalisation: advantages for developing countries","Advertising: increasing sales vs informing consumers","Community service compulsory in high school?","All cars will be electric in future. Agree?","Overweight population: causes and solutions","Studying history is a waste of time?","Technology makes communication less personal","Public transport vs road investment","Online shopping vs traditional shops"];
+var currentTopic="";
+// ====== CORE FUNCTIONS ======
+function $(i){return document.getElementById(i)}
+function switchSection(id){
+  document.querySelectorAll(".section").forEach(function(s){s.classList.remove("active");});
+  var s=$(id);if(s)s.classList.add("active");
+  document.querySelectorAll(".nav-item a").forEach(function(a){a.classList.remove("active");});
+  var l=document.querySelector('.nav-item a[data-section="'+id+'"]');if(l)l.classList.add("active");
+  if(window.innerWidth<=768)$("sidebar").classList.remove("open");
+  updateProgress();
+}
+document.querySelectorAll(".nav-item a").forEach(function(a){
+  a.addEventListener("click",function(e){e.preventDefault();switchSection(a.dataset.section);});
+});
+$("mobileMenuBtn").addEventListener("click",function(){$("sidebar").classList.toggle("open");});
+$("themeToggle").addEventListener("click",function(){document.body.classList.toggle("light");$("themeToggle").textContent=document.body.classList.contains("light")?"\u2600":"\u263E";});
+function switchWritingTab(t,btn){
+  document.querySelectorAll("#writing .tab-content").forEach(function(c){c.classList.remove("active");});
+  var m={task1:"writingTask1",task1gen:"writingTask1Gen",task2:"writingTask2",descriptors:"writingDescriptors"};
+  var e=$(m[t]);if(e)e.classList.add("active");
+  btn.parentNode.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("active");});btn.classList.add("active");
+}
+function switchVocabTab(t,btn){
+  document.querySelectorAll("#vocabulary .tab-content").forEach(function(c){c.classList.remove("active");});
+  var e=$("vocab"+t);if(e)e.classList.add("active");
+  btn.parentNode.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("active");});btn.classList.add("active");
+}
+function switchGrammarTab(t,btn){
+  document.querySelectorAll("#grammar .tab-content").forEach(function(c){c.classList.remove("active");});
+  var m={tenses:"grammarTenses",conditionals:"grammarConditionals",passive:"grammarPassive",cohesion:"grammarCohesion",exercises:"grammarExercises"};
+  var e=$(m[t]);if(e)e.classList.add("active");
+  btn.parentNode.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("active");});btn.classList.add("active");
+}
+function switchResTab(t,btn){
+  document.querySelectorAll("#resources .tab-content").forEach(function(c){c.classList.remove("active");});
+  var e=$("res"+t.charAt(0).toUpperCase()+t.slice(1));if(e)e.classList.add("active");
+  btn.parentNode.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("active");});btn.classList.add("active");
+}
+// reading passages 2+3
+var TFNG2ans=[0,1,0,0];
+var TFNG2s=0,TFNG2t=0;
+function checkTFNG2(el,qi,oi){
+  el.parentNode.querySelectorAll(".btn-outline").forEach(function(b){b.style.borderColor="";b.style.background="";b.style.color="";});
+  var c=(oi===TFNG2ans[qi]);el.style.borderColor=c?"#00e676":"#ff5252";el.style.background=c?"rgba(0,230,118,0.1)":"rgba(255,82,82,0.1)";el.style.color=c?"#00e676":"#ff5252";
+  TFNG2t++;if(c)TFNG2s++;$("readingScore2").textContent="Score: "+TFNG2s+"/"+TFNG2t;
+}
+function checkFill(el,a){
+  el.style.borderColor=el.value.toLowerCase().trim()===a?"#00e676":"#ff5252";el.style.background=el.value.toLowerCase().trim()===a?"rgba(0,230,118,0.1)":"rgba(255,82,82,0.1)";
+}
+var matchRs=0,matchRt=0;
+function checkMatchR(el,a){
+  el.style.borderColor=el.value===a?"#00e676":"#ff5252";el.style.background=el.value===a?"rgba(0,230,118,0.1)":"rgba(255,82,82,0.1)";
+  matchRt++;if(el.value===a)matchRs++;$("readingScore3").textContent="Score: "+matchRs+"/"+matchRt;
+}
+function checkFill2(el,a){
+  el.style.borderColor=el.value.toLowerCase().trim()===a.toLowerCase()?"#00e676":"#ff5252";el.style.background=el.value.toLowerCase().trim()===a.toLowerCase()?"rgba(0,230,118,0.1)":"rgba(255,82,82,0.1)";
+}
+function saveAssessment(){
+  var v={tfng:$("saTFNG").value,head:$("saHead").value,sum:$("saSum").value,mcq:$("saMCQ").value,mat:$("saMatch").value,comp:$("saComp").value,date:Date.now()};
+  dbP("meta",{key:"assessment",value:JSON.stringify(v)}).then(function(){showToast("Assessment saved!");});
+}
+function calcBand(){
+  var r=parseInt($("rawScore").value);
+  if(isNaN(r)||r<0||r>40){$("bandResult").textContent="--";$("saveResultBtn").style.display="none";return;}
+  var s=$("scoreSection").value;
+  var b={listening:[2,3,3,4,4,4,5,5,5,5.5,5.5,6,6,6,6.5,6.5,6.5,7,7,7,7.5,7.5,7.5,8,8,8,8.5,8.5,8.5,9,9,9,9,9,9,9,9,9,9,9],readingA:[1,2,2.5,3,3.5,4,4,4.5,4.5,5,5,5,5.5,5.5,5.5,6,6,6,6.5,6.5,6.5,6.5,7,7,7,7,7.5,7.5,7.5,7.5,8,8,8,8.5,8.5,8.5,9,9,9,9],readingG:[1,2,2.5,3,3.5,3.5,4,4,4.5,4.5,5,5,5,5.5,5.5,5.5,6,6,6,6.5,6.5,6.5,6.5,7,7,7,7.5,7.5,7.5,8,8,8,8.5,8.5,8.5,9,9,9,9,9]};
+  var band=b[s][r-1];$("bandResult").textContent=band;$("saveResultBtn").style.display="block";
+  $("saveResultBtn").onclick=function(){saveTestResult(band,s,r);};
+}
+function checkTFNG(el,qIdx,optIdx){
+  el.parentNode.querySelectorAll(".btn-outline").forEach(function(b){b.style.borderColor="";b.style.background="";b.style.color="";});
+  var c=(optIdx===TFNGanswers[qIdx]);el.style.borderColor=c?"#00e676":"#ff5252";el.style.background=c?"rgba(0,230,118,0.1)":"rgba(255,82,82,0.1)";el.style.color=c?"#00e676":"#ff5252";
+  TFNGtotal++;if(c)TFNGscore++;$("readingScore1").textContent="Score: "+TFNGscore+"/"+TFNGtotal;
+}
+function checkListening(el,ans,correct){
+  if(!correct)correct="renewable";
+  var p=el.parentNode;p.querySelectorAll(".quiz-option").forEach(function(o){o.classList.remove("selected","correct","wrong");});
+  el.classList.add("selected");
+  if(ans===correct){el.classList.add("correct");}
+  else{el.classList.add("wrong");var f=null;p.querySelectorAll(".quiz-option").forEach(function(o){if(o.getAttribute("onclick")&&o.getAttribute("onclick").includes("'"+correct+"'"))f=o;});if(f)f.classList.add("correct");}
+}
+function checkMapAns(el,loc){
+  var a={A:"gallery",B:"lecture"};el.style.borderColor=el.value===a[loc]?"#00e676":"#ff5252";el.style.background=el.value===a[loc]?"rgba(0,230,118,0.1)":"rgba(255,82,82,0.1)";
+}
+function countWords(){
+  var t=$("writingInput").value.trim();var w=t?t.split(/\s+/).length:0;
+  $("wordCount").textContent=w;$("charCount").textContent=t.length;
+  var ww=$("wordWarning");if(w<150){ww.style.display="inline";ww.textContent="Need: Task 1 150+ / Task 2 250+";}else if(w<250){ww.style.display="inline";ww.textContent="Task 2 needs 250+ (Task 1 OK)";}else ww.style.display="none";
+}
+function generateTopic(t1,t2){
+  var d=$("topicDisplay");
+  if(t2==="task2"){var t=task2Topics[Math.floor(Math.random()*task2Topics.length)];d.innerHTML="<strong>Task 2:</strong> "+t+'<br><span style="font-size:11px;color:var(--text2)">Write 250+ words, 40 min</span>';}
+  else if(t1){var t=task1Topics[Math.floor(Math.random()*task1Topics.length)];d.innerHTML="<strong>Task 1 Academic:</strong> "+t+'<br><span style="font-size:11px;color:var(--text2)">Write 150+ words, 20 min</span>';}
+  else{var t=task1GenTopics[Math.floor(Math.random()*task1GenTopics.length)];d.innerHTML="<strong>Task 1 General:</strong> "+t+'<br><span style="font-size:11px;color:var(--text2)">Write 150+ words, 20 min</span>';}
+}
+// ====== RENDER ======
+function renderVocab(){
+  vocabTopics.forEach(function(t){
+    var c=$("vocab"+t);if(!c)return;var d=vocabData[t];if(!d)return;
+    var h='<div class="table-wrap"><table><thead><tr><th style="width:40px"></th><th>Word</th><th>Meaning</th><th>Example</th></tr></thead><tbody>';
+    d.forEach(function(i){h+='<tr><td><button class="btn-bookmark" onclick="toggleVocabBookmark(this,\''+t+'\',\''+i.w+'\')">&#9734;</button></td><td style="color:var(--accent);font-weight:600">'+i.w+'</td><td>'+i.m+'</td><td><em>'+i.e+'</em></td></tr>';});
+    h+='</tbody></table></div>';c.innerHTML=h;
+  });
+}
+function renderGrammar(){
+  function rc(d,id){var c=$(id);if(!c)return;var h="";d.forEach(function(i){h+='<div class="card" style="padding:18px"><h4>'+i.t+'</h4><p><strong>Form:</strong> '+i.r+'</p><p><strong>Use:</strong> '+i.u+'</p><p><strong>IELTS:</strong> <em>'+i.e+'</em></p></div>';});c.innerHTML=h;}
+  rc(grammarTenses,"tensesContent");rc(grammarConditionals,"conditionalsContent");rc(grammarPassive,"passiveContent");rc(grammarCohesion,"cohesionContent");
+}
+function renderGrammarQuiz(){
+  var c=$("grammarQuizContainer");if(!c)return;var h="";
+  grammarQuiz.forEach(function(q,i){
+    h+='<div class="card" id="gq'+i+'" style="padding:16px"><p style="margin-bottom:8px"><strong>'+(i+1)+".</strong> "+q.q+'</p><div id="gqo'+i+'">';
+    q.o.forEach(function(o,j){h+='<div class="quiz-option" onclick="checkGQ('+i+','+j+')">'+o+'</div>';});
+    h+='</div><div class="quiz-feedback" id="gqf'+i+'"></div></div>';
+  });
+  c.innerHTML=h;
+}
+function checkGQ(qi,oi){
+  var q=grammarQuiz[qi];var c=$("gqo"+qi);
+  c.querySelectorAll(".quiz-option").forEach(function(e,i){e.classList.remove("selected","correct","wrong");if(i===oi)e.classList.add("selected");if(i===q.a)e.classList.add("correct");if(i===oi&&i!==q.a)e.classList.add("wrong");});
+  var f=$("gqf"+qi);f.className="quiz-feedback show"+(oi===q.a?" correct":" wrong");f.textContent=oi===q.a?"Correct!":"Incorrect. Answer: "+q.o[q.a];
+}
+function renderFlashcards(){
+  var c=$("flashcardGrid");if(!c)return;var h="";
+  flashcards.forEach(function(card){
+    h+='<div class="flashcard" onclick="this.classList.toggle(\'flipped\')"><div class="flashcard-inner"><div class="flashcard-front"><h4>'+card.w+'</h4><p>Click to reveal</p><span style="position:absolute;bottom:10px;right:14px;font-size:11px;color:var(--text2);opacity:0.5">Flip</span></div><div class="flashcard-back"><div style="position:absolute;top:10px;right:10px"><button class="btn-bookmark" onclick="event.stopPropagation();toggleFlashcardBookmark(this,\''+card.w+'\')">&#9734;</button></div><h4>'+card.w+'</h4><p>'+card.m+'</p><p style="margin-top:8px;font-style:italic">"'+card.e+'"</p></div></div></div>';
+  });
+  c.innerHTML=h;
+}
+function renderCueCards(){
+  var c=$("cueCardGrid");if(!c)return;var h="";
+  for(var i=0;i<100;i++){h+='<div class="cue-card" onclick="openCueCard('+i+')"><div class="cue-num">Card '+(i+1)+'</div><h5 style="font-size:12px;margin-top:4px">'+cueCards100[i].title.substring(0,40)+'</h5></div>';}
+  c.innerHTML=h;
+}
+function renderAnswerSheet(){
+  var c=$("answerSheet");if(!c)return;var h="";
+  for(var i=1;i<=40;i++){h+='<div style="background:var(--bg2);padding:4px;text-align:center;border-radius:4px;border:1px solid var(--border);font-size:11px">'+i+'<br><input type="text" style="width:100%;padding:2px;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-size:10px;text-align:center;outline:none"></div>';}
+  c.innerHTML=h;
+}
+// ====== VOCAB QUIZ ======
+var vqI=0,vqS=0,vqT=0;
+var vqD=[{q:"Which word means 'variety of life in an ecosystem'?",o:["Biodiversity","Ecosystem","Habitat","Conservation"],a:0},{q:"What does 'sustainable' mean?",o:["Quick to break","Maintainable","Expensive","Difficult"],a:1},{q:"'Emissions' refers to:",o:["Forest clearing","Releasing gases","Protecting nature","Growing crops"],a:1},{q:"Which means 'at risk of extinction'?",o:["Renewable","Organic","Endangered","Biodegradable"],a:2},{q:"'Sedentary' lifestyle means:",o:["Active","Inactive","Healthy","Outdoor"],a:1},{q:"What does 'innovation' mean?",o:["Old tradition","New method","Regulation","Process"],a:1},{q:"'Algorithm' is:",o:["Bacteria","Computational steps","Instrument","Pattern"],a:1},{q:"What does 'curriculum' mean?",o:["Building","Staff","Course plan","Student"],a:2}];
+function loadVocabQuestion(){
+  var q=vqD[vqI];$("vocabQText").textContent=q.q;
+  var h="";q.o.forEach(function(o,i){h+='<div class="quiz-option" onclick="checkVQ('+i+')">'+o+'</div>';});
+  $("vocabQOptions").innerHTML=h;$("vocabQFeedback").textContent="";
+}
+function checkVQ(oi){
+  var q=vqD[vqI];var opts=$("vocabQOptions").querySelectorAll(".quiz-option");
+  opts.forEach(function(e,i){e.classList.remove("selected","correct","wrong");if(i===q.a)e.classList.add("correct");if(i===oi&&i!==q.a)e.classList.add("wrong");if(i===oi)e.classList.add("selected");});
+  vqT++;if(oi===q.a)vqS++;$("vocabQFeedback").textContent=oi===q.a?"Correct!":"Answer: "+q.o[q.a];$("vocabQScore").textContent="Score: "+vqS+"/"+vqT;
+}
+function nextVocabQuestion(){vqI=(vqI+1)%vqD.length;loadVocabQuestion();}
+// ====== CUE CARD TIMER ======
+var currentCue=0,cueTI=null,cueTL=60,cueP="prep";
+function openCueCard(idx){currentCue=idx;$("cueTitle").textContent=cueCards100[idx].title;$("cuePrompt").textContent=cueCards100[idx].prompt;$("cueModal").classList.add("open");var bm=$("cueBookmarkBtn");if(bm){bm.textContent="\u2606";bm.classList.remove("saved");getAllBm().then(function(a){var e=a.find(function(b){return b.type==="cuecard"&&b.idx===idx;});if(e){bm.textContent="\u2605";bm.classList.add("saved");}});}resetCueTimer();}
+function closeCueModal(){$("cueModal").classList.remove("open");if(cueTI){clearInterval(cueTI);cueTI=null;}}
+function resetCueTimer(){if(cueTI){clearInterval(cueTI);cueTI=null;}cueP="prep";cueTL=60;$("cueTimer").textContent="01:00";$("cuePhase").innerHTML="Prep: <strong>1 min</strong>";$("cueStartBtn").textContent="Start";$("cueStartBtn").onclick=startCueTimer;}
+function scount(sec,label,cb){cueTL=sec;$("cuePhase").innerHTML=label;var m=Math.floor(cueTL/60),s=cueTL%60;$("cueTimer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;cueTI=setInterval(function(){cueTL--;var m=Math.floor(cueTL/60),s=cueTL%60;$("cueTimer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;if(cueTL<=0){clearInterval(cueTI);cueTI=null;if(cb)cb();}},1000);}
+function startCueTimer(){if(cueTI)return;$("cueStartBtn").textContent="Stop";$("cueStartBtn").onclick=stopCueTimer;if(cueP==="prep"){scount(60,"Prep: <strong>1 min</strong>",function(){cueP="speak";$("cuePhase").innerHTML="Speak: <strong>2 min</strong>";$("cueStartBtn").textContent="Stop";$("cueStartBtn").onclick=stopCueTimer;scount(120,"Speak: <strong>2 min</strong>",function(){$("cuePhase").innerHTML="Time's up!";$("cueStartBtn").textContent="Reset";$("cueStartBtn").onclick=resetCueTimer;});});}else if(cueP==="speak"){scount(cueTL,"Speak: <strong>2 min</strong>",function(){$("cuePhase").innerHTML="Time's up!";$("cueStartBtn").textContent="Reset";$("cueStartBtn").onclick=resetCueTimer;});}
+}
+function stopCueTimer(){if(cueTI){clearInterval(cueTI);cueTI=null;$("cueStartBtn").textContent="Resume";$("cueStartBtn").onclick=resumeCueTimer;}}
+function resumeCueTimer(){if(cueTI)return;$("cueStartBtn").textContent="Stop";$("cueStartBtn").onclick=stopCueTimer;if(cueP==="prep"){scount(cueTL,"Prep: <strong>1 min</strong>",function(){cueP="speak";$("cuePhase").innerHTML="Speak: <strong>2 min</strong>";$("cueStartBtn").textContent="Stop";$("cueStartBtn").onclick=stopCueTimer;scount(120,"Speak: <strong>2 min</strong>",function(){$("cuePhase").innerHTML="Time's up!";$("cueStartBtn").textContent="Reset";$("cueStartBtn").onclick=resetCueTimer;});});}else if(cueP==="speak"){scount(cueTL,"Speak: <strong>2 min</strong>",function(){$("cuePhase").innerHTML="Time's up!";$("cueStartBtn").textContent="Reset";$("cueStartBtn").onclick=resetCueTimer;});}
+}
+// ====== PRACTICE TIMER ======
+var ptI=null,ptL=3600;
+function startPracticeTimer(){if(ptI)return;ptI=setInterval(function(){ptL--;var m=Math.floor(ptL/60),s=ptL%60;$("practiceTimer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;if(ptL<=0){clearInterval(ptI);ptI=null;$("practiceTimer").textContent="00:00";$("practiceTimer").style.color="#ff5252";}},1000);}
+function pausePracticeTimer(){if(ptI){clearInterval(ptI);ptI=null;}}
+function resetPracticeTimer(){if(ptI){clearInterval(ptI);ptI=null;}ptL=3600;$("practiceTimer").textContent="60:00";$("practiceTimer").style.color="var(--accent)";}
+// ====== INDEXED DB ======
+var DBI=null;
+function openDB(){return new Promise(function(res,rej){var r=indexedDB.open("IELTS_Pro",1);r.onupgradeneeded=function(e){var d=e.target.result;if(!d.objectStoreNames.contains("progress"))d.createObjectStore("progress",{keyPath:"id"});if(!d.objectStoreNames.contains("bookmarks"))d.createObjectStore("bookmarks",{keyPath:"id",autoIncrement:true});if(!d.objectStoreNames.contains("writing"))d.createObjectStore("writing",{keyPath:"id",autoIncrement:true});if(!d.objectStoreNames.contains("testResults"))d.createObjectStore("testResults",{keyPath:"id",autoIncrement:true});if(!d.objectStoreNames.contains("meta"))d.createObjectStore("meta",{keyPath:"key"});};r.onsuccess=function(e){DBI=e.target.result;res(DBI);};r.onerror=function(e){rej(e.target.error);};});}
+function dbP(s,d){return new Promise(function(res,rej){var t=DBI.transaction(s,"readwrite");var r=t.objectStore(s).put(d);r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+function dbG(s,k){return new Promise(function(res,rej){var t=DBI.transaction(s,"readonly");var r=t.objectStore(s).get(k);r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+function dbA(s){return new Promise(function(res,rej){var t=DBI.transaction(s,"readonly");var r=t.objectStore(s).getAll();r.onsuccess=function(){res(r.result);};r.onerror=function(){rej(r.error);};});}
+function dbD(s,k){return new Promise(function(res,rej){var t=DBI.transaction(s,"readwrite");t.objectStore(s).delete(k);t.oncomplete=function(){res();};t.onerror=function(){rej();};});}
+var secP={};var totalSec=12;
+function updateProgress(){
+  var e=0;document.querySelectorAll(".section").forEach(function(s){if(s.classList.contains("active")){if(!secP[s.id]){secP[s.id]=true;dbP("progress",{id:s.id,visited:Date.now()}).catch(function(){});}}if(secP[s.id])e++;});
+  var p=Math.round((e/totalSec)*100);$("overallPercent").textContent=p+"%";$("overallProgress").style.width=p+"%";
+  var c=0;for(var k in secP)c++;dbP("meta",{key:"explored",value:c}).catch(function(){});
+}
+function getAllBm(){return dbA("bookmarks").catch(function(){return[];});}
+function toggleVocabBookmark(el,t,w){getAllBm().then(function(a){var ex=a.find(function(b){return b.type==="vocab"&&b.topic===t&&b.word===w;});if(ex){dbD("bookmarks",ex.id).then(function(){el.textContent="\u2606";el.classList.remove("saved");showToast("Removed");updateBL();});}else{dbP("bookmarks",{type:"vocab",topic:t,word:w,date:Date.now()}).then(function(){el.textContent="\u2605";el.classList.add("saved");showToast("Saved!");updateBL();});}});}
+function toggleFlashcardBookmark(el,w){getAllBm().then(function(a){var ex=a.find(function(b){return b.type==="flashcard"&&b.word===w;});if(ex){dbD("bookmarks",ex.id).then(function(){el.textContent="\u2606";el.classList.remove("saved");updateBL();});}else{dbP("bookmarks",{type:"flashcard",word:w,date:Date.now()}).then(function(){el.textContent="\u2605";el.classList.add("saved");updateBL();});}});}
+function toggleCueBookmark(el,idx){getAllBm().then(function(a){var ex=a.find(function(b){return b.type==="cuecard"&&b.idx===idx;});if(ex){dbD("bookmarks",ex.id).then(function(){el.textContent="\u2606";el.classList.remove("saved");updateBL();});}else{dbP("bookmarks",{type:"cuecard",idx:idx,title:cueCards100[idx].title,date:Date.now()}).then(function(){el.textContent="\u2605";el.classList.add("saved");updateBL();});}});}
+function saveWriting(){var t=$("writingInput").value.trim();if(!t){showToast("Write something!");return;}dbP("writing",{text:t,words:t.split(/\s+/).length,date:Date.now()}).then(function(){showToast("Saved!");$("writingInput").value="";countWords();updateBL();renderWH();});}
+function saveTestResult(band,section,raw){dbP("testResults",{band:band,section:section,raw:raw,date:Date.now()}).then(function(){showToast("Result saved!");updateBL();renderTH();});}
+function showToast(m){var t=$("saveToast");if(!t){t=document.createElement("div");t.id="saveToast";t.className="save-toast";document.body.appendChild(t);}t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2000);}
+function updateBL(){getAllBm().then(function(a){var b=$("libBadge");if(b)b.textContent=a.length;});renderSV();updateDash();}
+function filterLibrary(f,btn){document.querySelectorAll(".lib-filter-btn").forEach(function(b){b.classList.remove("active");});if(btn)btn.classList.add("active");document.querySelectorAll(".lib-card").forEach(function(c){c.style.display=(f==="all"||c.textContent.toLowerCase().includes(f))?"":"none";});}
+function renderSV(){var c=$("savedVocabContainer");if(!c)return;getAllBm().then(function(a){var items=a.filter(function(b){return b.type==="vocab";});if(!items.length){c.innerHTML='<div class="empty-state"><div class="empty-icon">&#128218;</div><p>No saved vocabulary. Click stars in the Vocabulary section.</p></div>';return;}var h='<div class="table-wrap"><table><thead><tr><th>Word</th><th>Topic</th></tr></thead><tbody>';items.forEach(function(b){h+='<tr><td style="color:var(--accent);font-weight:600">'+b.word+'</td><td>'+b.topic+'</td></tr>';});h+='</tbody></table></div>';c.innerHTML=h;var ct=$("libVocabCount");if(ct)ct.textContent=items.length+" saved";});}
+function renderWH(){var c=$("writingHistoryContainer");if(!c)return;dbA("writing").then(function(a){a.reverse();if(!a.length){c.innerHTML='<div class="empty-state"><div class="empty-icon">&#9998;</div><p>No writing saved yet.</p></div>';return;}var h="";a.slice(0,5).forEach(function(w){var p=w.text.substring(0,80)+(w.text.length>80?"...":"");h+='<div class="card" style="padding:10px;margin-bottom:6px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;color:var(--text2)">'+new Date(w.date).toLocaleDateString()+'</span><span style="font-size:11px;color:var(--accent)">'+w.words+' words</span></div><p style="font-size:12px;color:var(--text2);font-style:italic">"'+p+'"</p></div>';});c.innerHTML=h;var ct=$("libWritingCount");if(ct)ct.textContent=a.length+" drafts";});}
+function renderTH(){var c=$("testHistoryContainer");if(!c)return;dbA("testResults").then(function(a){a.reverse();if(!a.length){c.innerHTML='<div class="empty-state"><div class="empty-icon">&#128203;</div><p>No test results saved yet.</p></div>';return;}var h='<div class="table-wrap"><table><thead><tr><th>Date</th><th>Section</th><th>Band</th></tr></thead><tbody>';a.forEach(function(r){h+='<tr><td style="font-size:11px">'+new Date(r.date).toLocaleDateString()+'</td><td>'+r.section+'</td><td style="color:var(--accent);font-weight:800">'+r.band+'</td></tr>';});h+='</tbody></table></div>';c.innerHTML=h;var ct=$("libTestCount");if(ct)ct.textContent=a.length+" tests";var dt=$("dashTests");if(dt)dt.textContent=a.length;});}
+function updateDash(){getAllBm().then(function(a){var v=a.filter(function(b){return b.type==="vocab";}).length;var f=a.filter(function(b){return b.type==="flashcard";}).length;var cc=a.filter(function(b){return b.type==="cuecard";}).length;var d=$("dashVocab");if(d)d.textContent=v;var fl=$("libFlashCount");if(fl)fl.textContent=f+" saved";var cu=$("libCueCount");if(cu)cu.textContent=cc+" saved";});dbA("writing").then(function(a){var d=$("dashWriting");if(d)d.textContent=a.length;});}
+function updateStreak(){dbG("meta","lastVisit").then(function(d){var l=d?d.value:null;var t=new Date().toDateString();dbG("meta","streak").then(function(s){var st=s?s.value:0;if(l!==t){var y=new Date();y.setDate(y.getDate()-1);if(l===y.toDateString()){st++;}else{st=1;}dbP("meta",{key:"lastVisit",value:t});dbP("meta",{key:"streak",value:st});}$("streakCount").textContent=st;$("lastVisit").textContent=l?"Last: "+l:"First visit!";$("streakDisplay").textContent=st+" days";$("streakProgress").style.width=Math.min(st*3,100)+"%";var p=$("perfStreak");if(p)p.textContent=st;});});}
+function updatePerf(){var e=0;for(var k in secP)e++;$("perfSections").textContent=e+"/12";$("perfSectionsBar").style.width=(e/12*100)+"%";dbA("writing").then(function(a){var p=$("perfWriting");if(p)p.textContent=a.length;});dbA("testResults").then(function(a){var p=$("perfTests");if(p)p.textContent=a.length;});getAllBm().then(function(a){var v=a.filter(function(b){return b.type==="vocab";}).length;var p=$("perfVocab");if(p)p.textContent=v;});}
+function doSearch(q){q=q.toLowerCase().trim();if(!q){document.querySelectorAll(".section").forEach(function(s){s.style.display="";});document.querySelectorAll(".section.active").forEach(function(s){s.style.display="block";});return;}var r=[];document.querySelectorAll(".section").forEach(function(s){if(s.textContent.toLowerCase().includes(q))r.push(s.id);});document.querySelectorAll(".section").forEach(function(s){s.style.display=r.includes(s.id)?"block":"none";});}
+function init(){openDB().then(function(){return dbA("progress");}).then(function(p){p.forEach(function(p){secP[p.id]=true;});renderVocab();renderGrammar();renderGrammarQuiz();renderFlashcards();renderCueCards();renderAnswerSheet();loadVocabQuestion();initParticles();initIO();updateProgress();updateStreak();updateBL();renderSV();renderWH();renderTH();updatePerf();document.querySelectorAll(".accordion-header").forEach(function(h){h.addEventListener("click",function(){h.parentNode.classList.toggle("open");});});}).catch(function(){renderVocab();renderGrammar();renderGrammarQuiz();renderFlashcards();renderCueCards();renderAnswerSheet();loadVocabQuestion();initParticles();initIO();updateProgress();});}
+function initParticles(){var c=$("particleCanvas");if(!c)return;var ca=document.createElement("canvas");ca.style.cssText="position:absolute;inset:0;width:100%;height:100%";c.appendChild(ca);var ctx=ca.getContext("2d");var w,h,pa=[];function rs(){w=ca.width=c.offsetWidth;h=ca.height=c.offsetHeight;}rs();window.addEventListener("resize",rs);for(var i=0;i<50;i++){pa.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,r:Math.random()*2+1});}function dr(){ctx.clearRect(0,0,w,h);pa.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle="rgba(0,212,255,"+(0.12+Math.random()*0.12)+")";ctx.fill();});requestAnimationFrame(dr);}dr();}
+function initIO(){var e=document.querySelectorAll(".fade-up");if("IntersectionObserver" in window){var o=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");o.unobserve(e.target);}});},{threshold:0.1});e.forEach(function(el){o.observe(el);});}else{e.forEach(function(el){el.classList.add("visible");});}}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init);}else{init();}
+</script>
+</body>
+</html>

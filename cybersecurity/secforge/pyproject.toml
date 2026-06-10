@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "secforge"
+version = "1.0.0"
+description = "A modular cybersecurity toolkit manager"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "PavelGoblin" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+secforge = "secforge.cli:main"

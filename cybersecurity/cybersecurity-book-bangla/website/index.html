@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সাইবার নিরাপত্তা: শূন্য থেকে চাকরি</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+        
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent: #00d4aa;
+            --accent-glow: rgba(0, 212, 170, 0.15);
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --blue: #3b82f6;
+            --border: #1e293b;
+            --code-bg: #0f172a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar .logo span { color: var(--text-primary); font-weight: 400; }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .nav-links a:hover { color: var(--accent); background: var(--accent-glow); }
+
+        .hamburger { display: none; cursor: pointer; color: var(--text-primary); font-size: 24px; }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 24px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent), #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-item .number { font-size: 32px; font-weight: 700; color: var(--accent); }
+        .stat-item .label { font-size: 14px; color: var(--text-secondary); }
+
+        /* Search */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 4px;
+            transition: all 0.3s;
+        }
+        .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 16px 20px;
+            font-size: 16px;
+            color: var(--text-primary);
+            font-family: 'Noto Sans Bengali', sans-serif;
+            outline: none;
+        }
+        .search-box input::placeholder { color: var(--text-secondary); }
+
+        .search-box button {
+            background: var(--accent);
+            border: none;
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            transition: opacity 0.3s;
+        }
+        .search-box button:hover { opacity: 0.9; }
+
+        /* Content Layout */
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-left: 12px;
+        }
+
+        .part-group {
+            margin-bottom: 8px;
+        }
+
+        .part-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--accent);
+            transition: background 0.3s;
+        }
+        .part-header:hover { background: var(--accent-glow); }
+        .part-header .arrow { transition: transform 0.3s; font-size: 12px; }
+        .part-header.active .arrow { transform: rotate(90deg); }
+
+        .part-chapters { display: none; padding-left: 8px; }
+        .part-chapters.open { display: block; }
+
+        .chapter-link {
+            display: block;
+            padding: 8px 12px 8px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-left: 2px solid transparent;
+        }
+        .chapter-link:hover {
+            color: var(--text-primary);
+            background: var(--accent-glow);
+            border-left-color: var(--accent);
+        }
+        .chapter-link.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: 80vh;
+            padding-bottom: 100px;
+        }
+
+        .chapter-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .chapter-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Chapter Styling */
+        .chapter-content {
+            max-width: 900px;
+        }
+
+        .chapter-content h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .chapter-content .chapter-meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 40px 0 16px;
+            color: var(--accent);
+        }
+
+        .chapter-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+        }
+
+        .chapter-content p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 12px 0 20px 24px;
+            color: var(--text-secondary);
+        }
+        .chapter-content li { margin-bottom: 8px; }
+
+        .chapter-content code {
+            background: var(--code-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: #e879f9;
+        }
+
+        .chapter-content pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .chapter-content pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .chapter-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .chapter-content th {
+            background: var(--bg-card);
+            color: var(--accent);
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+            font-weight: 600;
+        }
+
+        .chapter-content td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .chapter-content tr:hover td { background: var(--bg-card); }
+
+        .chapter-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 20px 0;
+            background: var(--accent-glow);
+            border-radius: 0 12px 12px 0;
+            color: var(--text-primary);
+        }
+
+        .chapter-content blockquote p { color: var(--text-primary); margin: 0; }
+
+        .chapter-content strong { color: var(--text-primary); }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 40px 0;
+        }
+
+        .chapter-content .header-anchor { display: none; }
+        .chapter-content a { color: var(--accent); text-decoration: none; }
+        .chapter-content a:hover { text-decoration: underline; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        /* Home Page */
+        .home-page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .home-page .intro-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .home-page .intro-card h2 {
+            color: var(--accent);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .home-page .part-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .home-page .part-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .home-page .part-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 170, 0.1);
+        }
+        .home-page .part-card h3 { color: var(--accent); font-size: 16px; margin-bottom: 8px; }
+        .home-page .part-card p { color: var(--text-secondary); font-size: 13px; margin: 0; }
+        .home-page .part-card .count { font-size: 12px; color: var(--text-secondary); margin-top: 8px; }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 100px 24px;
+            color: var(--text-secondary);
+        }
+
+        .loading .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar {
+                position: fixed;
+                left: -320px;
+                top: 64px;
+                width: 300px;
+                height: calc(100vh - 64px);
+                background: var(--bg-primary);
+                border-right: 1px solid var(--border);
+                z-index: 999;
+                padding: 20px;
+                transition: left 0.3s;
+            }
+            .sidebar.open { left: 0; }
+            .hamburger { display: block; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 120px 16px 40px; }
+            .hero h1 { font-size: 26px; }
+            .nav-links { display: none; }
+            .chapter-content h1 { font-size: 26px; }
+        }
+
+        /* Mobile nav toggle for sidebar */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        .sidebar-overlay.open { display: block; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo" onclick="showHome()">
+            🛡️ Cyber<span>Book</span>
+        </a>
+        <div class="hamburger" onclick="toggleSidebar()">☰</div>
+        <div class="nav-links">
+            <a href="#" onclick="showHome()">হোম</a>
+            <a href="#chapters" onclick="scrollToChapters()">সূচিপত্র</a>
+            <a href="#" onclick="document.getElementById('search-input').focus()">🔍 খুঁজুন</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Search -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="যেকোনো অধ্যায় খুঁজুন... যেমন: SQL Injection, Nmap, Linux..." oninput="searchChapters(this.value)">
+            <button onclick="searchChapters(document.getElementById('search-input').value)">🔍</button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-title">📖 সূচিপত্র</div>
+            <div id="sidebar-parts"></div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>বই লোড হচ্ছে...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>📘 "সাইবার নিরাপত্তা: শূন্য থেকে চাকরি" — একটি সম্পূর্ণ বাংলা সাইবার নিরাপত্তা বই</p>
+        <p style="margin-top:8px;font-size:12px;">শিক্ষামূলক উদ্দেশ্যে | সব কোড নিজের lab-এ practice করো | ⚠️ অন্যের system-এ hack করা illegal</p>
+    </footer>
+
+    <script>
+        // Book Structure
+        const bookStructure = [
+            { part: "পার্ট ১: ভিত্তি ও রোডম্যাপ", folder: "পার্ট-১_ভিত্তি_ও_রোডম্যাপ", chapters: [
+                { file: "অধ্যায়-০১_cybersecurity_কী_ও_কেন_শিখবে.md", title: "Cybersecurity কী এবং কেন শিখবে?" },
+                { file: "অধ্যায়-০২_ethical_hacking_কী.md", title: "Ethical Hacking কী?" },
+                { file: "অধ্যায়-০৩_certification_roadmap.md", title: "Certification Roadmap" }
+            ]},
+            { part: "পার্ট ২: Networking", folder: "পার্ট-২_Networking", chapters: [
+                { file: "অধ্যায়-০৪_internet_কিভাবে_কাজ_করে.md", title: "Internet কীভাবে কাজ করে" },
+                { file: "অধ্যায়-০৫_networking_fundamentals.md", title: "Networking Fundamentals" },
+                { file: "অধ্যায়-০৬_advanced_networking.md", title: "Advanced Networking" },
+                { file: "অধ্যায়-০৭_wifi_wireless.md", title: "WiFi ও Wireless" }
+            ]},
+            { part: "পার্ট ৩: Linux", folder: "পার্ট-৩_Linux", chapters: [
+                { file: "অধ্যায়-০৮_linux_কেন_শিখবে.md", title: "Linux কেন শিখবে?" },
+                { file: "অধ্যায়-০৯_linux_commands.md", title: "Linux Commands (A-Z)" },
+                { file: "অধ্যায়-১০_kali_linux_setup.md", title: "Kali Linux Setup" },
+                { file: "অধ্যায়-১১_parrot_security_os.md", title: "Parrot Security OS" }
+            ]},
+            { part: "পার্ট ৪: Reconnaissance", folder: "পার্ট-৪_Reconnaissance", chapters: [
+                { file: "অধ্যায়-১২_osint_passive_recon.md", title: "OSINT & Passive Recon" },
+                { file: "অধ্যায়-১৩_nmap_active_recon.md", title: "Nmap Bible (Active Recon)" },
+                { file: "অধ্যায়-১৪_spoofing_anonymity.md", title: "IP/MAC Spoofing ও Anonymity" }
+            ]},
+            { part: "পার্ট ৫: Attack Techniques", folder: "পার্ট-৫_Attack_Techniques", chapters: [
+                { file: "অধ্যায়-১৫_vulnerability_assessment.md", title: "Vulnerability Assessment" },
+                { file: "অধ্যায়-১৬_5_stages_of_hacking.md", title: "5 Stages of Hacking" },
+                { file: "অধ্যায়-১৭_system_hacking.md", title: "System Hacking" },
+                { file: "অধ্যায়-১৮_phishing_attacks.md", title: "Phishing Attacks" },
+                { file: "অধ্যায়-১৯_malware.md", title: "Malware" },
+                { file: "অধ্যায়-২০_network_attacks.md", title: "Network Attacks (MITM, DDoS)" },
+                { file: "অধ্যায়-২১_wifi_hacking.md", title: "WiFi Hacking" },
+                { file: "অধ্যায়-২২_password_security.md", title: "Password Security" }
+            ]},
+            { part: "পার্ট ৬: Web Security", folder: "পার্ট-৬_Web_Security", chapters: [
+                { file: "অধ্যায়-২৩_web_security_basics.md", title: "Web Security Basics" },
+                { file: "অধ্যায়-২৪_owasp_top_10.md", title: "OWASP Top 10" },
+                { file: "অধ্যায়-২৫_advanced_web_attacks.md", title: "Advanced Web Attacks" },
+                { file: "অধ্যায়-২৬_gain_maintain_access.md", title: "Gain/Maintain/Clear Tracks" }
+            ]},
+            { part: "পার্ট ৭: Tools", folder: "পার্ট-৭_Tools", chapters: [
+                { file: "অধ্যায়-২৭_metasploit_framework.md", title: "Metasploit Framework A-Z" },
+                { file: "অধ্যায়-২৮_top_10_kali_tools.md", title: "Top 10 Kali Tools" },
+                { file: "অধ্যায়-২৯_top_10_free_tools.md", title: "Top 10 Free Security Tools" },
+                { file: "অধ্যায়-৩০_top_10_gadgets.md", title: "Top 10 Hacking Gadgets" }
+            ]},
+            { part: "পার্ট ৮: Mobile Security", folder: "পার্ট-৮_Mobile_Security", chapters: [
+                { file: "অধ্যায়-৩১_android_mobile_security.md", title: "Android ও Mobile Security" }
+            ]},
+            { part: "পার্ট ৯: IoT", folder: "পার্ট-৯_IoT", chapters: [
+                { file: "অধ্যায়-৩২_cctv_iot_security.md", title: "CCTV ও IoT Security" }
+            ]},
+            { part: "পার্ট ১০: Dark Web ও Cyber War", folder: "পার্ট-১০_Dark_Web", chapters: [
+                { file: "অধ্যায়-৩৩_surface_deep_dark_web.md", title: "Surface, Deep & Dark Web" },
+                { file: "অধ্যায়-৩৪_cyber_war.md", title: "Cyber War ও Future Threats" }
+            ]},
+            { part: "পার্ট ১১: Cryptography", folder: "পার্ট-১১_Cryptography", chapters: [
+                { file: "অধ্যায়-৩৫_cryptography.md", title: "Cryptography Fundamentals" }
+            ]},
+            { part: "পার্ট ১২: Defense & Blue Team", folder: "পার্ট-১২_Defense", chapters: [
+                { file: "অধ্যায়-৩৬_network_security_defense.md", title: "Network Security ও Defense" },
+                { file: "অধ্যায়-৩৭_incident_response.md", title: "Incident Response ও Forensics" },
+                { file: "অধ্যায়-৩৮_siem_monitoring.md", title: "SIEM ও Monitoring" },
+                { file: "অধ্যায়-৩৯_hardening.md", title: "Hardening (Linux/Windows/Web)" }
+            ]},
+            { part: "পার্ট ১৩: Domain-specific", folder: "পার্ট-১৩_Domain_Specific", chapters: [
+                { file: "অধ্যায়-৪০_healthcare_security.md", title: "Healthcare Cybersecurity" },
+                { file: "অধ্যায়-৪১_financial_security.md", title: "Financial Cybersecurity" }
+            ]},
+            { part: "পার্ট ১৪: AI", folder: "পার্ট-১৪_AI", chapters: [
+                { file: "অধ্যায়-৪২_ai_cybersecurity.md", title: "AI in Cybersecurity" }
+            ]},
+            { part: "পার্ট ১৫: Career", folder: "পার্ট-১৫_Career", chapters: [
+                { file: "অধ্যায়-৪৩_bash_scripting.md", title: "Bash Scripting for Hackers" },
+                { file: "অধ্যায়-৪৪_osint_advanced.md", title: "OSINT Advanced" },
+                { file: "অধ্যায়-৪৫_ctf_labs.md", title: "CTF ও Practical Labs" },
+                { file: "অধ্যায়-৪৬_bug_bounty.md", title: "Bug Bounty" },
+                { file: "অধ্যায়-৪৭_roadmap_2026.md", title: "Ethical Hacker Roadmap 2026" },
+                { file: "অধ্যায়-৪৮_interview_prep.md", title: "Interview Preparation" }
+            ]},
+            { part: "পার্ট ১৬: বিগিনার রোডম্যাপ ২০২৬", folder: "পার্ট-১৬_২০২৬_রোডম্যাপ", chapters: [
+                { file: "অধ্যায়-৪৯_বিগিনার_রোডম্যাপ_২০২৬_সম্পূর্ণ.md", title: "সাইবার সিকিউরিটি বিগিনার রোডম্যাপ ২০২৬" }
+            ]}
+        ];
+
+        const basePath = 'https://raw.githubusercontent.com/PavelGoblin/cybersecurity-book-bangla/main';
+        let allChapters = [];
+        let currentChapter = null;
+
+        // Build sidebar
+        function buildSidebar() {
+            const container = document.getElementById('sidebar-parts');
+            container.innerHTML = '';
+            allChapters = [];
+
+            bookStructure.forEach((part, pi) => {
+                const group = document.createElement('div');
+                group.className = 'part-group';
+
+                const header = document.createElement('div');
+                header.className = 'part-header';
+                header.innerHTML = `${part.part} <span class="arrow">▶</span>`;
+                header.onclick = () => {
+                    header.classList.toggle('active');
+                    header.nextElementSibling.classList.toggle('open');
+                };
+                if (pi === 0) { header.classList.add('active'); }
+
+                const chList = document.createElement('div');
+                chList.className = 'part-chapters' + (pi === 0 ? ' open' : '');
+
+                part.chapters.forEach((ch, ci) => {
+                    const link = document.createElement('a');
+                    link.className = 'chapter-link';
+                    link.textContent = `${pi+1}.${ci+1} ${ch.title}`;
+                    link.onclick = (e) => {
+                        e.preventDefault();
+                        loadChapter(pi, ci);
+                        toggleSidebar(); // close mobile sidebar
+                    };
+                    chList.appendChild(link);
+
+                    allChapters.push({
+                        partIndex: pi,
+                        chapterIndex: ci,
+                        part: part.part,
+                        title: ch.title,
+                        file: `${basePath}/${part.folder}/${ch.file}`,
+                        link: link
+                    });
+                });
+
+                group.appendChild(header);
+                group.appendChild(chList);
+                container.appendChild(group);
+            });
+        }
+
+        // Load chapter
+        async function loadChapter(partIdx, chIdx) {
+            const ch = bookStructure[partIdx].chapters[chIdx];
+            const filePath = `${basePath}/${bookStructure[partIdx].folder}/${ch.file}`;
+            const main = document.getElementById('main-content');
+
+            // Update active link
+            allChapters.forEach(c => c.link.classList.remove('active'));
+            const target = allChapters.find(c => c.partIndex === partIdx && c.chapterIndex === chIdx);
+            if (target) target.link.classList.add('active');
+
+            main.innerHTML = '<div class="loading"><div class="spinner"></div><p>অধ্যায় লোড হচ্ছে...</p></div>';
+
+            try {
+                const resp = await fetch(filePath);
+                if (!resp.ok) throw new Error('Not found');
+                const md = await resp.text();
+                const html = marked.parse(md);
+
+                main.innerHTML = `
+                    <div class="chapter-content active">
+                        <div class="chapter-meta">${bookStructure[partIdx].part} | অধ্যায় ${chIdx+1}</div>
+                        ${html}
+                    </div>
+                `;
+                currentChapter = { part: partIdx, ch: chIdx };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch(err) {
+                main.innerHTML = `
+                    <div style="text-align:center;padding:80px 24px;">
+                        <div style="font-size:48px;margin-bottom:16px;">📖</div>
+                        <h2 style="color:var(--accent);margin-bottom:12px;">${ch.title}</h2>
+                        <p style="color:var(--text-secondary);">অধ্যায়টি লোড করা যায়নি। ফাইলটি আছে কিনা check করুন।</p>
+                        <p style="color:var(--text-secondary);font-size:13px;margin-top:8px;">Path: ${filePath}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Show home
+        function showHome() {
+            const main = document.getElementById('main-content');
+            allChapters.forEach(c => c.link.classList.remove('active'));
+
+            let partCards = '';
+            bookStructure.forEach((part, i) => {
+                partCards += `
+                    <div class="part-card" onclick="loadChapter(${i}, 0)">
+                        <h3>${part.part}</h3>
+                        <p>${part.chapters.length}টি অধ্যায়</p>
+                        <div class="count">📖 ${part.chapters.map(c => c.title).join(', ')}</div>
+                    </div>
+                `;
+            });
+
+            main.innerHTML = `
+                <div class="home-page">
+                    <div class="intro-card">
+                        <h2>📘 স্বাগতম!</h2>
+                        <p>এটি একটি সম্পূর্ণ বাংলা সাইবার নিরাপত্তা বই — "সাইবার নিরাপত্তা: শূন্য থেকে চাকরি"।</p>
+                        <p style="margin-top:12px;">
+                            এই বইতে ৪৯টি অধ্যায় রয়েছে, ১৬টি পার্টে বিভক্ত। প্রতিটি অধ্যায়ে বাংলায় ব্যাখ্যা, 
+                            সম্পূর্ণ কোড, এবং হাতে-কলমে ল্যাব এক্সারসাইজ রয়েছে।
+                        </p>
+                        <p style="margin-top:12px;color:var(--accent);">
+                            🚀 বাম পাশের সাইডবার থেকে যেকোনো অধ্যায় পড়া শুরু করো!
+                        </p>
+                    </div>
+
+                    <h2 style="margin: 32px 0 16px; color: var(--text-primary); font-size: 22px;">📚 সম্পূর্ণ সূচিপত্র</h2>
+                    <div class="part-list">${partCards}</div>
+
+                    <div class="intro-card" style="margin-top:24px;">
+                        <h2>🎯 এই বই থেকে কী শিখবে?</h2>
+                        <ul style="margin-top:16px;">
+                            <li>✅ Networking (হ্যাকারদের জন্য CCNA)</li>
+                            <li>✅ Linux — হ্যাকারের অস্ত্র</li>
+                            <li>✅ Reconnaissance — তথ্য সংগ্রহ (OSINT)</li>
+                            <li>✅ Attack Techniques — System Hacking, Phishing, Malware</li>
+                            <li>✅ Web Application Security — OWASP Top 10</li>
+                            <li>✅ Metasploit, Nmap, Wireshark, Burp Suite</li>
+                            <li>✅ Mobile, IoT, Dark Web, Cryptography</li>
+                            <li>✅ Defense — Blue Team, SIEM, Incident Response</li>
+                            <li>✅ Career — Bug Bounty, CTF, Interview, Certification</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search
+        function searchChapters(query) {
+            const q = query.toLowerCase().trim();
+            const main = document.getElementById('main-content');
+
+            if (!q) {
+                showHome();
+                return;
+            }
+
+            const results = allChapters.filter(c => 
+                c.title.toLowerCase().includes(q) || 
+                c.part.toLowerCase().includes(q)
+            );
+
+            if (results.length === 0) {
+                main.innerHTML = `
+                    <div style="text-align:center;padding:60px 24px;">
+                        <div style="font-size:48px;margin-bottom:16px;">🔍</div>
+                        <h2 style="color:var(--text-secondary);">কিছু পাওয়া যায়নি</h2>
+                        <p style="color:var(--text-secondary);margin-top:8px;">"${query}"—এর জন্য কোন অধ্যায় নেই</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `<h2 style="margin-bottom:20px;">🔍 "${q}"—এর জন্য ${results.length}টি ফলাফল</h2><div style="display:grid;gap:12px;">`;
+            results.forEach(r => {
+                html += `
+                    <div class="part-card" onclick="loadChapter(${r.partIndex}, ${r.chapterIndex})" style="cursor:pointer;">
+                        <h3 style="color:var(--accent);">${r.title}</h3>
+                        <p style="color:var(--text-secondary);font-size:13px;">${r.part}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            main.innerHTML = html;
+        }
+
+        // Scroll to chapters
+        function scrollToChapters() {
+            document.querySelector('.content-wrapper').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle sidebar (mobile)
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebar-overlay').classList.toggle('open');
+        }
+
+        // Init — load chapter 1
+        window.onload = () => {
+            buildSidebar();
+            loadChapter(0, 0);
+        };
+    </script>
+</body>
+</html>

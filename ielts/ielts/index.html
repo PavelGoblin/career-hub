@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS 7+ গাইড — Beginner to Band 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Exo+2:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #004D98;
+    --blue-glow: #0066cc;
+    --red: #A50044;
+    --gold: #EDBB00;
+    --gold-glow: #ffd633;
+    --dark: #0a0e1a;
+    --darker: #060810;
+    --card: rgba(17,24,39,0.85);
+    --card2: rgba(26,34,52,0.8);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.2);
+    --text: #e8eaf0;
+    --muted: #8892a4;
+    --font-bn: 'Hind Siliguri', sans-serif;
+    --font-en: 'Exo 2', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: var(--font-bn);
+    font-size: 15px;
+    line-height: 1.75;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ========== PARTICLES BG ========== */
+  #particles-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ========== SCROLLBAR ========== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--darker); }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--blue), var(--red)); border-radius: 3px; }
+
+  /* ========== REVEAL ANIMATION ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ========== HERO ========== */
+  .hero {
+    background: linear-gradient(135deg, #060810 0%, #0d1628 50%, #060810 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 800px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(0,77,152,0.3) 0%, rgba(165,0,68,0.1) 50%, transparent 70%);
+    pointer-events: none;
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,77,152,0.2);
+    border: 1px solid rgba(0,77,152,0.5);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-family: var(--font-en);
+    font-size: 12px;
+    color: #7ab3ef;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    backdrop-filter: blur(5px);
+  }
+  .hero h1 {
+    font-family: var(--font-en);
+    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 40px rgba(0,77,152,0.3);
+  }
+  .hero h1 span.blue { color: var(--blue); }
+  .hero h1 span.gold { color: var(--gold); }
+  .hero h1 span.blue, .hero h1 span.gold { display: inline-block; }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--gold);
+    animation: blink 0.8s step-end infinite;
+    max-width: 100%;
+  }
+  @keyframes blink { 50% { border-color: transparent; } }
+
+  /* ========== STAT ROW ========== */
+  .stat-row {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    max-width: 560px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .stat {
+    background: rgba(17,24,39,0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 22px;
+    text-align: center;
+    min-width: 110px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+  .stat:hover {
+    border-color: rgba(237,187,0,0.3);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 8px 30px rgba(237,187,0,0.1);
+  }
+  .stat .n {
+    font-family: var(--font-en);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat .l { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+  /* ========== FLOATING PARTICLES (CSS) ========== */
+  .floating-particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.4;
+    animation: floatParticle 8s infinite;
+  }
+  @keyframes floatParticle {
+    0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+    20% { opacity: 0.5; }
+    80% { opacity: 0.5; }
+    100% { transform: translateY(-200px) translateX(100px) scale(1); opacity: 0; }
+  }
+
+  /* ========== LAYOUT ========== */
+  .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; position: relative; z-index: 1; }
+
+  /* ========== SECTION CARDS (3D GLASS) ========== */
+  .section-card {
+    background: rgba(17,24,39,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    perspective: 800px;
+    position: relative;
+  }
+  .section-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--blue), transparent, var(--gold));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .section-card:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-3px) rotateX(1deg);
+    box-shadow: 0 12px 50px rgba(0,77,152,0.15), 0 0 30px rgba(237,187,0,0.05);
+  }
+  .section-card:hover::before { opacity: 1; }
+  .sec-head {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+    position: relative;
+    z-index: 1;
+  }
+  .sec-head:hover { background: rgba(255,255,255,0.03); }
+  .sec-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .section-card:hover .sec-icon { transform: scale(1.1) rotate(5deg); }
+  .sec-title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .sec-meta {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--font-en);
+    margin-right: 8px;
+  }
+  .chevron {
+    color: var(--muted);
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  .chevron.open { transform: rotate(180deg); }
+  .sec-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+    animation: slideDown 0.3s ease;
+  }
+  .sec-body.open { display: block; }
+  @keyframes slideDown {
+    from { opacity: 0; max-height: 0; }
+    to { opacity: 1; max-height: 2000px; }
+  }
+
+  /* ========== CONTENT ELEMENTS ========== */
+  p.body { font-size: 14px; line-height: 1.8; color: var(--muted); margin-top: 14px; }
+  .tip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .tip {
+    background: rgba(26,34,52,0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text);
+    flex: 1; min-width: 160px;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+  }
+  .tip:hover {
+    border-color: rgba(0,77,152,0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,77,152,0.1);
+  }
+  .tip b { display: block; color: var(--gold); font-size: 12px; margin-bottom: 4px; font-family: var(--font-en); }
+
+  .timeline { margin-top: 14px; }
+  .tl-item {
+    display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;
+    transition: transform 0.2s ease;
+  }
+  .tl-item:hover { transform: translateX(4px); }
+  .tl-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+    font-family: var(--font-en);
+    box-shadow: 0 0 15px rgba(0,77,152,0.3);
+    transition: all 0.3s ease;
+  }
+  .tl-item:hover .tl-dot { transform: scale(1.1); box-shadow: 0 0 25px rgba(0,77,152,0.5); }
+  .tl-dot.r { background: var(--red); box-shadow: 0 0 15px rgba(165,0,68,0.3); }
+  .tl-item:hover .tl-dot.r { box-shadow: 0 0 25px rgba(165,0,68,0.5); }
+  .tl-dot.g { background: #1d7a3a; box-shadow: 0 0 15px rgba(29,122,58,0.3); }
+  .tl-item:hover .tl-dot.g { box-shadow: 0 0 25px rgba(29,122,58,0.5); }
+  .tl-dot.x { background: #333; font-size: 13px; box-shadow: none; }
+  .tl-text { font-size: 13.5px; line-height: 1.7; color: var(--text); }
+  .tl-text b { color: var(--gold); font-weight: 600; }
+
+  .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  a.res {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12.5px;
+    color: #7ab3ef;
+    border: 1px solid rgba(0,77,152,0.45);
+    border-radius: 10px;
+    padding: 6px 14px;
+    text-decoration: none;
+    background: rgba(0,77,152,0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+  a.res::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  a.res:hover {
+    background: rgba(0,77,152,0.25);
+    border-color: rgba(0,77,152,0.7);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 20px rgba(0,77,152,0.3);
+  }
+  a.res:hover::before { opacity: 1; }
+  a.res::before { content: '↗'; font-size: 11px; position: relative; z-index: 1; }
+  a.res span { position: relative; z-index: 1; }
+
+  .warn {
+    background: rgba(165,0,68,0.12);
+    border: 1px solid rgba(165,0,68,0.35);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #f4a0b5;
+    margin-top: 14px;
+    line-height: 1.6;
+    border-left: 3px solid var(--red);
+  }
+  .pro {
+    background: rgba(29,122,58,0.12);
+    border: 1px solid rgba(29,122,58,0.35);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #7dd49a;
+    margin-top: 10px;
+    line-height: 1.6;
+    border-left: 3px solid #1d7a3a;
+  }
+
+  /* ========== WEEK GRID ========== */
+  .week-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 14px; }
+  .week-box {
+    background: rgba(26,34,52,0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .week-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .week-box:hover {
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  .week-box:hover::before { opacity: 1; }
+  .week-box .wk {
+    font-size: 10px; font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-en);
+    margin-bottom: 4px;
+  }
+  .week-box .focus { font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 5px; }
+  .week-box .task { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ========== PROMPT BOX ========== */
+  .prompt-box {
+    background: rgba(6,8,16,0.8);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #b4c8e0;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  .prompt-box:hover {
+    border-color: rgba(0,77,152,0.5);
+    box-shadow: 0 0 20px rgba(0,77,152,0.1);
+  }
+  .prompt-box .prompt-label {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .prompt-box .prompt-label::before {
+    content: '💬 AI Prompt';
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-family: var(--font-en);
+  }
+  .prompt-box .click-hint {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: var(--font-en);
+    opacity: 0.6;
+  }
+  .prompt-box .prompt-text {
+    display: block;
+    margin-top: 2px;
+  }
+  .prompt-box .answer {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: #7dd49a;
+    font-family: var(--font-bn);
+    white-space: pre-wrap;
+  }
+  .prompt-box .answer.open { display: block; }
+
+  /* ========== STORY CARD ========== */
+  .story-card {
+    background: linear-gradient(135deg, rgba(15,20,32,0.8), rgba(26,17,32,0.8));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(237,187,0,0.2);
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 10px;
+    font-size: 80px;
+    color: rgba(237,187,0,0.1);
+    font-family: var(--font-en);
+    line-height: 1;
+  }
+  .story-card .quote {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+  .story-card .author {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ========== COST HIGHLIGHT ========== */
+  .cost-highlight {
+    display: inline-block;
+    background: rgba(237,187,0,0.1);
+    border: 1px solid rgba(237,187,0,0.3);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .cost-highlight::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(from 0deg, transparent, rgba(237,187,0,0.05), transparent);
+    animation: spinGlow 6s linear infinite;
+  }
+  @keyframes spinGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .cost-highlight .tk {
+    font-family: var(--font-en);
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(237,187,0,0.3);
+    position: relative;
+  }
+  .cost-highlight .desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    position: relative;
+  }
+
+  /* ========== TABLE OF CONTENTS ========== */
+  .toc {
+    background: rgba(17,24,39,0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 1.5rem;
+  }
+  .toc-title {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+  }
+  @media (max-width: 500px) { .toc-grid { grid-template-columns: 1fr; } }
+  .toc-item {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 5px 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .toc-item:hover {
+    color: var(--gold);
+    background: rgba(237,187,0,0.08);
+    transform: translateX(4px);
+  }
+  .toc-item::before { content: '→ '; color: var(--blue); }
+
+  /* ========== SCORE GRID ========== */
+  .score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .score-card {
+    background: rgba(17,24,39,0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+  .score-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 40px rgba(0,77,152,0.2);
+    border-color: rgba(0,77,152,0.4);
+  }
+  .score-card .num {
+    font-family: var(--font-en);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--blue);
+    text-shadow: 0 0 20px rgba(0,77,152,0.3);
+  }
+  .score-card .num.r { color: var(--red); text-shadow: 0 0 20px rgba(165,0,68,0.3); }
+  .score-card .num.g { color: #2db55d; text-shadow: 0 0 20px rgba(45,181,93,0.3); }
+  .score-card .num.gd { color: var(--gold); text-shadow: 0 0 20px rgba(237,187,0,0.3); }
+  .score-card .lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ========== CALCULATOR ========== */
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  @media (max-width: 500px) { .calc-grid { grid-template-columns: 1fr; } }
+  .calc-field label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 5px; font-family: var(--font-en); }
+  .calc-field input {
+    width: 100%;
+    background: rgba(26,34,52,0.6);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-size: 16px;
+    font-family: var(--font-en);
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  .calc-field input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 20px rgba(0,77,152,0.2);
+  }
+  .calc-btn {
+    margin-top: 14px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--blue), #002d5a);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    font-family: var(--font-bn);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+  .calc-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gold), var(--blue));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .calc-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 30px rgba(0,77,152,0.4); }
+  .calc-btn:hover::before { opacity: 0.2; }
+  .calc-btn:active { transform: scale(0.98); }
+  .calc-btn span { position: relative; z-index: 1; }
+  .band-result {
+    margin-top: 14px;
+    background: rgba(26,34,52,0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    display: none;
+    animation: fadeScale 0.3s ease;
+  }
+  @keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .band-result .big {
+    font-family: var(--font-en);
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .band-result .msg { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  /* ========== SECTION LABEL ========== */
+  .sec-label {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 2rem 0 0.75rem;
+    padding-left: 4px;
+    position: relative;
+  }
+  .sec-label::after {
+    content: '';
+    display: inline-block;
+    width: 30px; height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    position: relative;
+    background: linear-gradient(0deg, var(--darker), transparent);
+  }
+  footer span.b { color: var(--blue); }
+  footer span.r { color: var(--red); }
+  footer span.g { color: var(--gold); }
+
+  /* ========== NEON CURSOR TRAIL ========== */
+  .cursor-trail {
+    position: fixed;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transition: transform 0.1s ease;
+    box-shadow: 0 0 15px var(--gold), 0 0 30px var(--gold);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 500px) {
+    .stat-row { gap: 8px; }
+    .stat { min-width: 80px; padding: 10px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- HERO -->
+<header class="hero reveal">
+  <div class="floating-particle" style="top:20%;left:10%;animation-delay:0s;"></div>
+  <div class="floating-particle" style="top:60%;left:80%;animation-delay:2s;"></div>
+  <div class="floating-particle" style="top:80%;left:30%;animation-delay:4s;"></div>
+  <div class="floating-particle" style="top:30%;left:70%;animation-delay:6s;"></div>
+  <div class="floating-particle" style="top:50%;left:50%;animation-delay:3s;"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🎯 IELTS Preparation Guide · Bangla</div>
+    <h1>
+      <span class="blue">IELTS</span>
+      <span class="gold"> 7+</span><br>
+      <span style="color:#e8eaf0">বাংলা গাইড</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="typewriter">Beginner → Band 7–7.5+ · AI Powered · No Coaching</span>
+    </p>
+    <div class="stat-row">
+      <div class="stat"><div class="n" data-count="7.0">0</div><div class="l">Minimum Target</div></div>
+      <div class="stat"><div class="n" style="color:#A50044" data-count="4">0</div><div class="l">Sections</div></div>
+      <div class="stat"><div class="n" style="color:#2db55d" data-count="3">0</div><div class="l">মাস লাগবে</div></div>
+      <div class="stat"><div class="n" style="color:#e8eaf0" data-count="50">0</div><div class="l">Min Daily</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc reveal">
+    <div class="toc-title">📌 সূচিপত্র</div>
+    <div class="toc-grid">
+      <span class="toc-item" onclick="togById('sec-what')">IELTS কী? Band Structure</span>
+      <span class="toc-item" onclick="togById('sec-story')">Ismat Shuchi · ২,২০০ টাকায় Band 7</span>
+      <span class="toc-item" onclick="togById('sec-reading')">Reading Tips + AI</span>
+      <span class="toc-item" onclick="togById('sec-listening')">Listening Tips + AI</span>
+      <span class="toc-item" onclick="togById('sec-writing')">Writing Tips + AI</span>
+      <span class="toc-item" onclick="togById('sec-speaking')">Speaking Tips + AI</span>
+      <span class="toc-item" onclick="togById('sec-strategy')">Mock Test Strategy</span>
+      <span class="toc-item" onclick="togById('sec-daily')">Daily 50-Min Routine</span>
+      <span class="toc-item" onclick="togById('sec-foundation')">30-Day Foundation</span>
+      <span class="toc-item" onclick="togById('sec-roadmap')">3-Month Roadmap</span>
+      <span class="toc-item" onclick="togById('sec-resources')">All Resources</span>
+      <span class="toc-item" onclick="togById('sec-mistakes')">Common Mistakes</span>
+      <span class="toc-item" onclick="togById('sec-dr')">Dr. Ashiqur Rahman</span>
+      <span class="toc-item" onclick="togById('sec-calc')">Band Calculator</span>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="sec-label reveal">Overview</div>
+
+  <div class="score-grid reveal">
+    <div class="score-card"><div class="num">L</div><div class="lbl">Listening · 40Q · 30min</div></div>
+    <div class="score-card"><div class="num r">R</div><div class="lbl">Reading · 40Q · 60min</div></div>
+    <div class="score-card"><div class="num g">W</div><div class="lbl">Writing · 2 Tasks · 60min</div></div>
+    <div class="score-card"><div class="num gd">S</div><div class="lbl">Speaking · 3 Parts · 14min</div></div>
+  </div>
+
+  <!-- WHAT IS IELTS -->
+  <div class="section-card reveal" id="sec-what">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(0,77,152,0.2)">📊</div>
+      <div class="sec-title">IELTS কী? Band Structure বোঝো</div>
+      <div class="sec-meta">Basic Info</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">IELTS = International English Language Testing System। দুই ধরন: <b>Academic</b> (university admission) আর <b>General Training</b> (migration/work visa)। চারটা section — Listening, Reading, Writing, Speaking। প্রতিটায় আলাদা band score (0–9), সব মিলিয়ে Overall Band Score।</p>
+      <div class="tip-row">
+        <div class="tip"><b>Band 7 = "Good User"</b>কিছু inaccuracy থাকলেও complex language handle করতে পারে। University admission-এ সাধারণত 6.5–7 চাই।</div>
+        <div class="tip"><b>Academic vs General</b>Academic-এ Reading/Writing কঠিন। General-এ একটু সহজ — কিন্তু Writing topic different।</div>
+        <div class="tip"><b>Score Valid</b>২ বছর। British Council আর IDP দুটোতেই দেওয়া যায় — একই পরীক্ষা।</div>
+      </div>
+      <div class="link-row">
+        <a class="res" href="https://www.ielts.org/about-ielts/what-is-ielts" target="_blank"><span>Official IELTS Site</span></a>
+        <a class="res" href="https://takeielts.britishcouncil.org" target="_blank"><span>British Council IELTS</span></a>
+        <a class="res" href="https://ielts.idp.com" target="_blank"><span>IDP IELTS</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REAL STORY: ISMAT SHUCHI -->
+  <div class="sec-label reveal">Real Story</div>
+
+  <div class="section-card reveal" id="sec-story">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(237,187,0,0.15)">💡</div>
+      <div class="sec-title">মাত্র ২,২০০ টাকায় IELTS এ Band 7 — Ismat Shuchi</div>
+      <div class="sec-meta">No Coaching</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <div class="story-card">
+        <div class="quote">"আমি কোনো IELTS coaching করিনি। আমার পুরো IELTS preparation এ খরচ হয়েছে মাত্র ২,২০০ টাকা।"</div>
+        <div class="author">— Ismat Shuchi · Band 7 · No Coaching</div>
+      </div>
+      <div class="cost-highlight">
+        <div class="tk">২,২০০ টাকা</div>
+        <div class="desc">Cambridge বই ৭০০ + Wings Mock Test ১,৫০০ = পুরো preparation</div>
+      </div>
+      <p class="body">আমার সবচেয়ে ক্লোজ friend IELTS এর বিখ্যাত কোচিং এ ভর্তি হয়েছিল ২২,০০০ টাকা দিয়ে, তার স্কোর ও এসেছে 7। এর মানে <b>coaching আপনাকে score এর guarantee দেয় না</b>। কোচিং দেয় structure guideline — যেটা আপনি নিজেও তৈরি করতে পারেন। নিচে তারই practical example দেওয়া হলো।</p>
+    </div>
+  </div>
+
+  <!-- READING -->
+  <div class="sec-label reveal">Skills</div>
+
+  <div class="section-card reveal" id="sec-reading">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(237,187,0,0.15)">📖</div>
+      <div class="sec-title">Reading — Band 7+ কিভাবে পাবো</div>
+      <div class="sec-meta">Target: 30/40</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">৬০ মিনিটে ৩টা passage, ৪০টা question। Academic → scientific article, General → advertisements + workplace text। <b>Time management সবচেয়ে বড় challenge.</b> Random পড়া সবচেয়ে বড় mistake। Cambridge লেটেস্ট বই follow করুন।</p>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">1</div><div class="tl-text"><b>Skimming:</b> পুরো passage না পড়ে main idea ধরো — প্রতি passage-এ ২-৩ মিনিট।</div></div>
+        <div class="tl-item"><div class="tl-dot">2</div><div class="tl-text"><b>Scanning:</b> Specific answer খুঁজতে keyword দিয়ে text-এ চোখ বোলাও।</div></div>
+        <div class="tl-item"><div class="tl-dot">3</div><div class="tl-text"><b>T/F/NG trap:</b> "Not Given" = passage-এ info নেই — False না। সবচেয়ে common mistake।</div></div>
+        <div class="tl-item"><div class="tl-dot r">4</div><div class="tl-text"><b>Vocab building:</b> Academic Word List (AWL) থেকে রোজ ১০টা শব্দ — context দিয়ে শেখো।</div></div>
+        <div class="tl-item"><div class="tl-dot g">5</div><div class="tl-text"><b>Time split:</b> P1 = 15min, P2 = 20min, P3 = 25min। Watch রাখো।</div></div>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🔗 Best Free Resources</p>
+      <div class="link-row">
+        <a class="res" href="https://takeielts.britishcouncil.org" target="_blank"><span>BC Official Practice</span></a>
+        <a class="res" href="https://cathoven.com" target="_blank"><span>Cathoven (Unlimited)</span></a>
+        <a class="res" href="https://alfaielts.com" target="_blank"><span>AlfaIELTS</span></a>
+        <a class="res" href="https://ieltsliz.com/ielts-reading/" target="_blank"><span>IELTS Liz Reading</span></a>
+        <a class="res" href="https://www.ieltsadvantage.com/ielts-reading/" target="_blank"><span>IELTS Advantage</span></a>
+        <a class="res" href="https://www.englishclub.com/vocabulary/awl.htm" target="_blank"><span>Academic Word List</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🤖 AI Prompts for Reading <span style="color:var(--muted);font-weight:400;font-size:12px">(ক্লিক করলে উত্তর দেখাবে)</span></p>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Give me an IELTS Academic Reading passage with True/False/Not Given questions and answers on space exploration.</span>
+        <div class="answer">
+📝 Sample Output:
+
+Passage: "The History of Space Exploration"
+The space race began in 1957 when the Soviet Union launched Sputnik 1... [shortened]
+
+1. Sputnik 1 was launched by the United States. → False
+2. The Apollo 11 mission landed on the Moon in 1969. → True
+3. Mars has been visited by astronauts. → Not Given
+4. The International Space Station was built by one country. → False
+        </div>
+      </div>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Create a summary completion exercise from an IELTS-style passage about climate change.</span>
+        <div class="answer">
+📝 Sample Output:
+
+Passage: "Climate change refers to long-term shifts in global temperatures... The main cause is the burning of fossil fuels such as coal, oil, and gas, which releases greenhouse gases like carbon dioxide and methane."
+
+Summary:
+Climate change involves long-term shifts in (1) ______ temperatures. The primary cause is burning (2) ______, which releases (3) ______ gases such as carbon dioxide and (4) ______.
+
+Answers: 1. global  2. fossil fuels  3. greenhouse  4. methane
+        </div>
+      </div>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Give me 10 academic words commonly used in IELTS Reading passages with definitions and example sentences.</span>
+        <div class="answer">
+📝 Sample Output:
+
+1. Analyze (v) — to examine in detail
+   → "Scientists analyze data to draw conclusions."
+2. Significant (adj) — important or meaningful
+   → "There was a significant increase in temperature."
+3. Consequently (adv) — as a result
+   → "Emissions rose; consequently, global warming accelerated."
+4. Furthermore (adv) — in addition
+   → "Furthermore, the study highlights economic impacts."
+5. Hypothesis (n) — a proposed explanation
+   → "The hypothesis was tested through experiments."
+        </div>
+      </div>
+      <div class="warn">⚠️ Dictionary দেখার অভ্যাস বাদ দাও — context থেকে meaning বোঝো। Exam-এ dictionary নেই।</div>
+    </div>
+  </div>
+
+  <!-- LISTENING -->
+  <div class="section-card reveal" id="sec-listening">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(29,122,58,0.2)">🎧</div>
+      <div class="sec-title">Listening — Band 7+ কিভাবে পাবো</div>
+      <div class="sec-meta">Target: 30/40</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">৪০টা question, ৪টা section, ~৩০ মিনিট। <b>Real exam এ audio একবারই play হয় — practice এ pause না করার অভ্যাস করুন।</b> British, Australian, American accent মিক্স। Spelling mistake = wrong answer।</p>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">1</div><div class="tl-text"><b>Accent training:</b> BBC Learning English, VOA News রোজ ২০ মিনিট।</div></div>
+        <div class="tl-item"><div class="tl-dot">2</div><div class="tl-text"><b>Note-taking:</b> শুনতে শুনতে keyword লেখো — পুরো sentence না, শুধু key word।</div></div>
+        <div class="tl-item"><div class="tl-dot">3</div><div class="tl-text"><b>Prediction:</b> Audio শুরুর আগে question পড়ো। Answer কোন type (number? name? date?) — আগে ভাবো।</div></div>
+        <div class="tl-item"><div class="tl-dot r">4</div><div class="tl-text"><b>Spelling drill:</b> "forty" (fourty না), "necessary", "accommodation" — list করে মুখস্থ করো।</div></div>
+        <div class="tl-item"><div class="tl-dot g">5</div><div class="tl-text"><b>Distraction:</b> Audio-তে first answer বলে পরে correct করে দেয় — শেষেরটা লেখো।</div></div>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🔗 Best Free Resources</p>
+      <div class="link-row">
+        <a class="res" href="https://takeielts.britishcouncil.org" target="_blank"><span>BC Official Audio</span></a>
+        <a class="res" href="https://cathoven.com" target="_blank"><span>Cathoven Listening</span></a>
+        <a class="res" href="https://www.youtube.com/@IELTSLiz" target="_blank"><span>IELTS Liz YouTube</span></a>
+        <a class="res" href="https://www.bbc.co.uk/learningenglish" target="_blank"><span>BBC Learning English</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🤖 AI Prompts for Listening</p>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Give me a transcript of an IELTS Listening Section 1 conversation with gap-fill questions.</span>
+        <div class="answer">
+📝 Sample Output:
+
+Conversation: Booking a Hotel Room
+Receptionist: Good morning, Grand Palace Hotel. How can I help you?
+Guest: Hello, I'd like to book a room for two nights.
+Receptionist: Certainly, sir. What date would you like to check in?
+Guest: The 15th of March.
+
+Questions:
+1. Hotel name: Grand ______
+2. Number of nights: ______
+3. Check-in date: ______ (month: March)
+
+Answers: 1. Palace  2. 2/two  3. 15th
+        </div>
+      </div>
+      <div class="warn">⚠️ AI Listening এ ততটা effective না যতটা Speaking বা Writing এ। Official recordings দিয়ে practice করুন।</div>
+      <div class="pro">✅ চোখ বন্ধ করে শোনার চেয়ে question দেখতে দেখতে শোনো — বেশি effective</div>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="section-card reveal" id="sec-writing">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(165,0,68,0.2)">✍️</div>
+      <div class="sec-title">Writing — Band 7+ কিভাবে পাবো</div>
+      <div class="sec-meta">সবচেয়ে কঠিন সেকশন</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">Task 1 (150+ words, 20 min) + Task 2 (250+ words, 40 min)। Academic Task 1 = graph/chart describe, General Task 1 = letter। <b>Task 1 আর Task 2 আলাদা skill — আলাদা practice দরকার।</b></p>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">1</div><div class="tl-text"><b>৪টা criteria:</b> Task Achievement + Coherence/Cohesion + Lexical Resource + Grammatical Range — সব ২৫%।</div></div>
+        <div class="tl-item"><div class="tl-dot">2</div><div class="tl-text"><b>Task 2 structure:</b> Intro → Body 1 → Body 2 → Conclusion। ৪ paragraph = safe।</div></div>
+        <div class="tl-item"><div class="tl-dot">3</div><div class="tl-text"><b>Linking words:</b> "Furthermore, However, In contrast" — overuse করো না, natural রাখো।</div></div>
+        <div class="tl-item"><div class="tl-dot r">4</div><div class="tl-text"><b>Paraphrasing MUST:</b> Question-এর exact word copy = band loss। নিজের ভাষায় rephrase করো।</div></div>
+        <div class="tl-item"><div class="tl-dot g">5</div><div class="tl-text"><b>Task 1 trend words:</b> rose sharply, declined gradually, remained stable, peaked at, fluctuated।</div></div>
+        <div class="tl-item"><div class="tl-dot">6</div><div class="tl-text"><b>Word count:</b> ১৫০/২৫০ এর কম = penalty। Always বেশি লেখো (১৬০–১৮০ / ২৭০–৩০০)।</div></div>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🔗 Best Free Resources</p>
+      <div class="link-row">
+        <a class="res" href="https://writeandimprove.cambridge.org" target="_blank"><span>Cambridge Write &amp; Improve</span></a>
+        <a class="res" href="https://ieltsliz.com/ielts-writing-task-2/" target="_blank"><span>IELTS Liz Task 2</span></a>
+        <a class="res" href="https://ieltsliz.com/ielts-writing-task-1/" target="_blank"><span>IELTS Liz Task 1</span></a>
+        <a class="res" href="https://www.ielts-simon.com/" target="_blank"><span>IELTS Simon (Ex-Examiner)</span></a>
+        <a class="res" href="https://www.grammarly.com" target="_blank"><span>Grammarly Check</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🤖 AI Prompt for Writing</p>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Evaluate my IELTS Task 2 essay and give me a band score with specific feedback.</span>
+        <div class="answer">
+📝 Sample Output:
+
+Band Score: 6.5
+
+Feedback:
+• Task Response: Good position, extend body para 2
+• Cohesion: Some linking but repetitive ("Moreover" x3)
+• ⚠️ Lexical: Spelling errors ("goverment" → "government")
+• Grammar: Some subject-verb agreement issues
+
+Suggestions: Vary linking words, proofread, expand conclusion.
+        </div>
+      </div>
+      <div class="warn">⚠️ Task 2 আগে শুরু করো — বেশি marks। সময় ভাগ plan করো।</div>
+      <div class="pro">✅ Simon (ex-IELTS examiner)-এর site সবচেয়ে reliable।</div>
+    </div>
+  </div>
+
+  <!-- SPEAKING -->
+  <div class="section-card reveal" id="sec-speaking">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(0,77,152,0.2)">🗣️</div>
+      <div class="sec-title">Speaking — Band 7+ কিভাবে পাবো</div>
+      <div class="sec-meta">11–14 মিনিট</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">৩টা part: Part 1 (intro, 4–5 min) → Part 2 (cue card, 2 min) → Part 3 (abstract, 4–5 min)। Examiner দেখে — Fluency, Vocabulary, Grammar, Pronunciation। <b>সবচেয়ে বড় ভয় — কিন্তু সবচেয়ে বেশি practice করা যায়।</b></p>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">1</div><div class="tl-text"><b>Filler কমাও:</b> "um, uh, you know" → "Well...", "That's an interesting question..."</div></div>
+        <div class="tl-item"><div class="tl-dot">2</div><div class="tl-text"><b>Extend করো:</b> Example + reason + personal experience — তিনটা মিলিয়ে বলো।</div></div>
+        <div class="tl-item"><div class="tl-dot">3</div><div class="tl-text"><b>Cue card:</b> রোজ একটা topic, ২ মিনিট বলো, record করে শুনে evaluate করো।</div></div>
+        <div class="tl-item"><div class="tl-dot r">4</div><div class="tl-text"><b>Pronunciation:</b> Perfect accent নয়, clarity। Syllable stress — "pho-TO-graph" vs "pho-to-GRA-phy"</div></div>
+        <div class="tl-item"><div class="tl-dot g">5</div><div class="tl-text"><b>Part 3:</b> "I think...", "In my view..." দিয়ে শুরু। Complex sentence গড়ো।</div></div>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🔗 Best Free Resources</p>
+      <div class="link-row">
+        <a class="res" href="https://smalltalk2.me" target="_blank"><span>SmallTalk2Me (AI Examiner)</span></a>
+        <a class="res" href="https://elsaspeak.com" target="_blank"><span>ELSA Speak (Pronunciation)</span></a>
+        <a class="res" href="https://ieltsliz.com/ielts-speaking/" target="_blank"><span>IELTS Liz Speaking</span></a>
+        <a class="res" href="https://www.youtube.com/@EnglishSpeakingSuccess" target="_blank"><span>Keith Academy</span></a>
+        <a class="res" href="https://www.youtube.com/@FastrackIELTS" target="_blank"><span>Fastrack IELTS</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🤖 AI Prompt for Speaking</p>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Act as an IELTS examiner. Give me a Part 2 cue card. Then evaluate my response.</span>
+        <div class="answer">
+📝 Sample Output:
+
+Cue Card: Describe a person who has influenced you.
+- Who this person is
+- How you know them
+- What qualities they have
+- Why they influenced you
+
+Evaluation:
+• Fluency: 7.0 — Good flow
+• Vocabulary: 6.5 — Use more idioms
+• Grammar: 7.0 — Complex structures
+• Pronunciation: 7.0 — Clear, good stress
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip"><b>Memorized Answer ≠ Good</b>Examiner detect করে। Natural হও।</div>
+        <div class="tip"><b>Correction allowed</b>"Sorry, I meant..." বলতে পারো। Fluidity দেখায়।</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="section-card reveal" id="sec-strategy">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(237,187,0,0.15)">🎯</div>
+      <div class="sec-title">Strategy + Mock Test — সবচেয়ে বেশি কাজ করেছে</div>
+      <div class="sec-meta">Game Changer</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">Mock test দিন real exam condition এ। Timer set করুন। Pause করবেন না। Score দেখুন। Weak area খুঁজুন। শুধু সেখানে focus করুন। Ismat দিয়েছিলেন ২টা মক টেস্ট ১,৫০০ টাকায় — best investment।</p>
+      <div class="cost-highlight">
+        <div class="tk">১,৫০০ টাকা</div>
+        <div class="desc">২টা Mock test — সবচেয়ে valuable investment</div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot g">✓</div><div class="tl-text"><b>Real exam simulation:</b> Exam-এর মতো environment-এ practice — computer based হলে computer এ।</div></div>
+        <div class="tl-item"><div class="tl-dot g">✓</div><div class="tl-text"><b>Weak area fix:</b> Listening spelling? Reading T/F/NG? শুধু সেটা improve করো।</div></div>
+        <div class="tl-item"><div class="tl-dot g">✓</div><div class="tl-text"><b>Time management:</b> Mock test ছাড়া real exam-এ panic হবে।</div></div>
+      </div>
+      <div class="pro">✅ যেকোনো center এ Mock test দিন — Wings বা অন্য center-এ। ৫০০–১০০০ টাকা। Investment।</div>
+    </div>
+  </div>
+
+  <!-- DAILY ROUTINE -->
+  <div class="section-card reveal" id="sec-daily">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(29,122,58,0.2)">⏰</div>
+      <div class="sec-title">Daily Routine — ৫০ মিনিটে Complete Preparation</div>
+      <div class="sec-meta">No Coaching</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">প্রতিদিন মাত্র ৫০ মিনিট। Coaching ছাড়াই। আপনার সুবিধা মতো customize করুন।</p>
+      <div class="week-grid">
+        <div class="week-box"><div class="wk">🌅 সকাল</div><div class="focus">১৫ মিনিট · Reading</div><div class="task">BC Official/Cathoven এ passage solve। T/F/NG বা summary completion।</div></div>
+        <div class="week-box"><div class="wk">☀️ দুপুর</div><div class="focus">২০ মিনিট · Writing</div><div class="task">Task 2 essay লিখো। ChatGPT/Cambridge Write & Improve এ evaluate করাও।</div></div>
+        <div class="week-box"><div class="wk">🌆 সন্ধ্যা</div><div class="focus">১৫ মিনিট · Listening</div><div class="task">Cathoven/BC Official এ listening — pause না করে complete করো।</div></div>
+        <div class="week-box"><div class="wk">🌙 রাত</div><div class="focus">১৫ মিনিট · Speaking</div><div class="task">SmallTalk2Me বা ChatGPT cue card। Record করে শোনো।</div></div>
+      </div>
+      <div class="pro" style="text-align:center;margin-top:16px">Consistency > Intensity। কম পড়ুন, কিন্তু প্রতিদিন পড়ুন।</div>
+    </div>
+  </div>
+
+  <!-- FOUNDATION PLAN -->
+  <div class="section-card reveal" id="sec-foundation">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(0,77,152,0.2)">📚</div>
+      <div class="sec-title">30-Day Foundation Plan — Grammar & Vocabulary</div>
+      <div class="sec-meta">Dr. Ashiqur Rahman</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body"><b>IELTS শুরু হয় বই থেকে নয়, বিশ্বাস থেকে।</b> Grammar দুর্বল হলে ৩০ দিনের foundation month নিন — প্রতিদিন নতুন কিছু। "Basic strong মানেই Confidence strong।"</p>
+      <div class="week-grid">
+        <div class="week-box"><div class="wk">Day 1–3</div><div class="focus">Sentence Structure</div><div class="task">Simple/Compound/Complex + Tenses review</div></div>
+        <div class="week-box"><div class="wk">Day 4–6</div><div class="focus">Prepositions</div><div class="task">in/on/at + Conjunctions (although, whereas, despite)</div></div>
+        <div class="week-box"><div class="wk">Day 7–10</div><div class="focus">Articles & Agreement</div><div class="task">a/an/the + Subject-Verb Agreement</div></div>
+        <div class="week-box"><div class="wk">Day 11–15</div><div class="focus">Questions & Modals</div><div class="task">Question formation + can/should/must/might</div></div>
+        <div class="week-box"><div class="wk">Day 16–20</div><div class="focus">Passive & Gerunds</div><div class="task">Passive voice + Gerunds vs Infinitives</div></div>
+        <div class="week-box"><div class="wk">Day 21–30</div><div class="focus">Synonyms & Paraphrasing</div><div class="task">Academic Word List + Punctuation + Paraphrasing</div></div>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🔗 Grammar YouTube</p>
+      <div class="link-row">
+        <a class="res" href="https://www.youtube.com/user/bbclearningenglish" target="_blank"><span>BBC Learning English</span></a>
+        <a class="res" href="https://www.youtube.com/c/EnglishwithLucy" target="_blank"><span>English with Lucy</span></a>
+        <a class="res" href="https://www.youtube.com/c/EnglishClass101" target="_blank"><span>EnglishClass101</span></a>
+        <a class="res" href="https://www.youtube.com/user/engvidenglish" target="_blank"><span>EngVid English</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🤖 AI Prompt for Vocabulary</p>
+      <div class="prompt-box" onclick="toggleAnswer(this)">
+        <span class="prompt-label"><span class="click-hint">ক্লিক করুন</span></span>
+        <span class="prompt-text">Give me 10 academic words with definitions and example sentences for IELTS.</span>
+        <div class="answer">
+📝 Sample Output:
+
+1. Analyze (v) — "Scientists analyze data."
+2. Significant (adj) — "A significant increase."
+3. Consequently (adv) — "Emissions rose; consequently, warming increased."
+4. Furthermore (adv) — "Furthermore, the study shows..."
+5. Hypothesis (n) — "The hypothesis was tested."
+6. Methodology (n) — "The methodology involved surveys."
+7. Subsequently (adv) — "Subsequently, the results were published."
+8. Demonstrate (v) — "The study demonstrates a link."
+9. Undermine (v) — "This undermines the argument."
+10. Widespread (adj) — "There is widespread agreement."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDY ROADMAP -->
+  <div class="sec-label reveal">Study Plan</div>
+
+  <div class="section-card reveal" id="sec-roadmap">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(237,187,0,0.15)">📅</div>
+      <div class="sec-title">3-Month Study Roadmap</div>
+      <div class="sec-meta">Daily ২–৩ ঘণ্টা</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <div class="week-grid">
+        <div class="week-box"><div class="wk">Month 1</div><div class="focus">Foundation</div><div class="task">Grammar basics, 30-day plan, vocab, IELTS format বোঝো, BBC শোনা শুরু</div></div>
+        <div class="week-box"><div class="wk">Month 2</div><div class="focus">Skill Building</div><div class="task">Section-wise practice, Writing templates, Cambridge books, mock test</div></div>
+        <div class="week-box"><div class="wk">Month 3</div><div class="focus">Mock Tests</div><div class="task">২টা mock test/সপ্তাহ, timing practice, weakness fix, Speaking বাড়াও</div></div>
+        <div class="week-box"><div class="wk">Daily</div><div class="focus">50-Min Habit</div><div class="task">Reading 15 + Writing 20 + Listening 15 + Speaking 15 = Coaching ছাড়া</div></div>
+      </div>
+      <div class="warn">⚠️ Mock test না দিলে exam hall-এ time management ভেঙে পড়বে। ১৫ দিন পর পর full mock দাও।</div>
+      <div class="pro">✅ Cambridge Official Practice Tests (Book 1–19) = সবচেয়ে authentic।</div>
+    </div>
+  </div>
+
+  <!-- ALL RESOURCES -->
+  <div class="sec-label reveal">All Resources at a Glance</div>
+
+  <div class="section-card reveal" id="sec-resources">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(0,77,152,0.2)">🔗</div>
+      <div class="sec-title">Best Free Resources — সব এক জায়গায়</div>
+      <div class="sec-meta">Websites · YouTube · Books</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:12px">📚 Official IELTS</p>
+      <div class="link-row">
+        <a class="res" href="https://www.ielts.org" target="_blank"><span>IELTS Official</span></a>
+        <a class="res" href="https://takeielts.britishcouncil.org" target="_blank"><span>BC IELTS</span></a>
+        <a class="res" href="https://ielts.idp.com" target="_blank"><span>IDP IELTS</span></a>
+        <a class="res" href="https://www.cambridgeenglish.org/exams-and-tests/ielts/" target="_blank"><span>Cambridge English</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">📖 Practice Platforms</p>
+      <div class="link-row">
+        <a class="res" href="https://ieltsliz.com" target="_blank"><span>IELTS Liz</span></a>
+        <a class="res" href="https://www.ielts-simon.com" target="_blank"><span>IELTS Simon</span></a>
+        <a class="res" href="https://www.ieltsadvantage.com" target="_blank"><span>IELTS Advantage</span></a>
+        <a class="res" href="https://cathoven.com" target="_blank"><span>Cathoven</span></a>
+        <a class="res" href="https://alfaielts.com" target="_blank"><span>AlfaIELTS</span></a>
+        <a class="res" href="https://writeandimprove.cambridge.org" target="_blank"><span>Cambridge Write &amp; Improve</span></a>
+        <a class="res" href="https://smalltalk2.me" target="_blank"><span>SmallTalk2Me</span></a>
+        <a class="res" href="https://elsaspeak.com" target="_blank"><span>ELSA Speak</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🎥 YouTube Channels</p>
+      <div class="link-row">
+        <a class="res" href="https://www.youtube.com/@IELTSLiz" target="_blank"><span>IELTS Liz</span></a>
+        <a class="res" href="https://www.youtube.com/@E2IELTS" target="_blank"><span>E2 IELTS</span></a>
+        <a class="res" href="https://www.youtube.com/@EnglishSpeakingSuccess" target="_blank"><span>Keith Academy</span></a>
+        <a class="res" href="https://www.youtube.com/@FastrackIELTS" target="_blank"><span>Fastrack IELTS</span></a>
+        <a class="res" href="https://www.youtube.com/@AcademicEnglishHelp" target="_blank"><span>Academic English</span></a>
+        <a class="res" href="https://www.youtube.com/user/bbclearningenglish" target="_blank"><span>BBC Learning</span></a>
+        <a class="res" href="https://www.youtube.com/c/EnglishwithLucy" target="_blank"><span>English with Lucy</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🎧 Listening Resources</p>
+      <div class="link-row">
+        <a class="res" href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank"><span>BBC 6 Minute English</span></a>
+        <a class="res" href="https://www.ted.com/talks" target="_blank"><span>TED Talks</span></a>
+        <a class="res" href="https://teacherluke.co.uk" target="_blank"><span>Luke's Podcast</span></a>
+        <a class="res" href="https://www.ieltspodcast.com" target="_blank"><span>IELTS Podcast</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">📖 Books</p>
+      <div class="link-row">
+        <a class="res" href="https://www.cambridge.org/us/cambridgeenglish/catalog/cambridge-english-exams-ielts" target="_blank"><span>Cambridge IELTS 1–19</span></a>
+        <a class="res" href="https://www.amazon.com/s?k=collins+practice+tests+ielts" target="_blank"><span>Collins Practice Tests</span></a>
+      </div>
+      <p class="body" style="color:var(--gold);font-weight:600;margin-top:14px">🇧🇩 Bangladesh Registration</p>
+      <div class="link-row">
+        <a class="res" href="https://bd.ielts.britishcouncil.org" target="_blank"><span>British Council BD</span></a>
+        <a class="res" href="https://www.idp.com/bangladesh/" target="_blank"><span>IDP Bangladesh</span></a>
+      </div>
+      <div class="pro">✅ Cambridge Official Books সবচেয়ে important। বাকি secondary।</div>
+    </div>
+  </div>
+
+  <!-- COMMON MISTAKES -->
+  <div class="section-card reveal" id="sec-mistakes">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(165,0,68,0.2)">⚠️</div>
+      <div class="sec-title">Common Mistakes — যেগুলো Band কমায়</div>
+      <div class="sec-meta">Must Avoid</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot x">✗</div><div class="tl-text"><b>Writing-এ Bengali structure:</b> "In my opinion I think" = redundant। একটা ব্যবহার করো।</div></div>
+        <div class="tl-item"><div class="tl-dot x">✗</div><div class="tl-text"><b>Reading-এ পুরো passage পড়া:</b> Skimming + scanning শেখো — exam-এ সময় থাকবে না।</div></div>
+        <div class="tl-item"><div class="tl-dot x">✗</div><div class="tl-text"><b>Speaking-এ memorized answers:</b> Examiner detect করে। Spontaneous হও।</div></div>
+        <div class="tl-item"><div class="tl-dot x">✗</div><div class="tl-text"><b>Listening-এ spelling:</b> "Fourty" = wrong। Numbers/dates/names spelling important।</div></div>
+        <div class="tl-item"><div class="tl-dot x">✗</div><div class="tl-text"><b>Over-complex vocab:</b> সহজ সঠিক word > কঠিন ভুল word।</div></div>
+        <div class="tl-item"><div class="tl-dot x">✗</div><div class="tl-text"><b>Mock test না দেওয়া:</b> Theory পড়াই যথেষ্ট না — timed practice চাই।</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DR. ASHIQUR RAHMAN -->
+  <div class="sec-label reveal">Inspiration</div>
+
+  <div class="section-card reveal" id="sec-dr">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(0,77,152,0.2)">🌟</div>
+      <div class="sec-title">IELTS — Exam দিলেই 7.5! Dr. Ashiqur Rahman</div>
+      <div class="sec-meta">Erasmus Mundus</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <div class="story-card">
+        <div class="quote">"IELTS কখনোই কেবল ইংরেজির পরীক্ষা নয়; এটা আত্মবিশ্বাসের পরীক্ষা। যে নিজের ওপর বিশ্বাস রাখে, সাফল্য তার হাতের নাগালেই থাকে।"</div>
+        <div class="author">— Dr. Md Ashiqur Rahman · Erasmus Mundus & Marie Curie Scholar</div>
+      </div>
+      <p class="body" style="margin-top:14px">আমি নিজে Erasmus Mundus এবং Marie Curie স্কলারশিপের পথে চলেছি — এই পথ শুরু হয় সাহস দিয়ে, শেষ হয় সাফল্যে। IELTS শুধু এক্সাম নয়, এটা আপনার আত্মবিশ্বাসের নতুন দিগন্ত।</p>
+      <p class="body"><b>Consistency:</b> IELTS ৭.৫ এর সফলতা আসে প্রতিদিনের ধারাবাহিকতায়। <b>"You don't have to be perfect; you just have to be consistent."</b></p>
+      <div class="link-row">
+        <a class="res" href="https://ielts.org" target="_blank"><span>IELTS Official</span></a>
+        <a class="res" href="https://takeielts.britishcouncil.org" target="_blank"><span>BC IELTS</span></a>
+        <a class="res" href="https://www.ieltsidp.com" target="_blank"><span>IDP IELTS</span></a>
+        <a class="res" href="https://www.cambridgeenglish.org/exams-and-tests/ielts/" target="_blank"><span>Cambridge Books</span></a>
+        <a class="res" href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank"><span>BBC 6 Minute English</span></a>
+        <a class="res" href="https://www.youtube.com/@EnglishSpeakingSuccess" target="_blank"><span>Keith Academy</span></a>
+        <a class="res" href="https://ieltsliz.com" target="_blank"><span>IELTS Liz</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAND CALCULATOR -->
+  <div class="sec-label reveal">Tools</div>
+
+  <div class="section-card reveal" id="sec-calc">
+    <div class="sec-head" onclick="tog(this)">
+      <div class="sec-icon" style="background:rgba(29,122,58,0.2)">🧮</div>
+      <div class="sec-title">Band Score Calculator</div>
+      <div class="sec-meta">Live Tool</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">চারটা section-এর score দিন — IELTS official rounding formula অনুযায়ী overall band বের হবে।</p>
+      <div class="calc-grid">
+        <div class="calc-field"><label>Listening (0–9)</label><input type="number" id="ls" min="0" max="9" step="0.5" value="7.0" placeholder="7.0"></div>
+        <div class="calc-field"><label>Reading (0–9)</label><input type="number" id="rd" min="0" max="9" step="0.5" value="7.0" placeholder="7.0"></div>
+        <div class="calc-field"><label>Writing (0–9)</label><input type="number" id="wr" min="0" max="9" step="0.5" value="6.5" placeholder="6.5"></div>
+        <div class="calc-field"><label>Speaking (0–9)</label><input type="number" id="sp" min="0" max="9" step="0.5" value="7.0" placeholder="7.0"></div>
+      </div>
+      <button class="calc-btn" onclick="calcBand()"><span>Overall Band বের করো</span></button>
+      <div class="band-result" id="band-result">
+        <div class="big" id="band-num">—</div>
+        <div class="msg" id="band-msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL -->
+  <div class="section-card reveal" style="text-align:center;">
+    <div class="sec-head" onclick="tog(this)" style="justify-content:center;">
+      <div class="sec-icon" style="background:rgba(237,187,0,0.15)">💬</div>
+      <div class="sec-title" style="text-align:center;">শেষ কথা — শুরু করুন আজই</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="sec-body">
+      <p class="body">Coaching structure দেয় — কিন্তু structure আপনি নিজেও তৈরি করতে পারেন। আর এখন AI সেই কাজটা free তে করে দিচ্ছে। ২০২৬ সালে টাকা আসলেই ম্যাটার করেনা; কারণ ফ্রি রিসোর্সেস + AI। মোবাইল ফোনটাকেই কাজে লাগান।</p>
+      <p class="body"><b>২,২০০ টাকায় Ismat Shuchi-র হয়েছে। তাই আপনারও হবে।</b></p>
+      <p class="body" style="color:var(--gold);font-size:16px;font-weight:600;margin-top:14px">IELTS শুধু এক্সাম নয় — আত্মবিশ্বাসের নতুন দিগন্ত। আজই শুরু করুন।</p>
+      <div class="link-row" style="justify-content:center;margin-top:16px">
+        <a class="res" href="https://takeielts.britishcouncil.org" target="_blank"><span>আজই শুরু করো →</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Made with <span class="b">■</span><span class="r">■</span><span class="g">■</span> · IELTS 7+ Bangla Guide</p>
+  <p style="margin-top:6px">Ismat Shuchi · Dr. Md Ashiqur Rahman · Sources: IELTS.org · BC · IDP · Liz · Cambridge</p>
+  <p style="margin-top:6px">🌐 <a href="https://pavelgoblin.github.io/ielts/" style="color:var(--gold);text-decoration:none;">pavelgoblin.github.io/ielts</a></p>
+</footer>
+
+<script>
+  // ===== TOGGLE ACCORDION =====
+  function tog(el) {
+    const body = el.nextElementSibling;
+    const chev = el.querySelector('.chevron');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open');
+    chev.classList.toggle('open', !isOpen);
+  }
+
+  function togById(id) {
+    const card = document.getElementById(id);
+    if (card) {
+      const head = card.querySelector('.sec-head');
+      if (head) tog(head);
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ===== AI PROMPT ANSWERS =====
+  function toggleAnswer(el) {
+    const answer = el.querySelector('.answer');
+    if (answer) answer.classList.toggle('open');
+  }
+
+  // ===== BAND CALCULATOR =====
+  function calcBand() {
+    const l = parseFloat(document.getElementById('ls').value) || 0;
+    const r = parseFloat(document.getElementById('rd').value) || 0;
+    const w = parseFloat(document.getElementById('wr').value) || 0;
+    const s = parseFloat(document.getElementById('sp').value) || 0;
+    const avg = (l + r + w + s) / 4;
+    const rounded = Math.round(avg * 2) / 2;
+
+    let msg = '';
+    let color = '';
+    if (rounded >= 7.5) { msg = '🎉 Excellent! Target ছাড়িয়ে গেছো!'; color = '#2db55d'; }
+    else if (rounded >= 7.0) { msg = '✅ Target reached! Band 7 পার।'; color = '#EDBB00'; }
+    else if (rounded >= 6.5) { msg = '📈 কাছাকাছি! Writing/Speaking-এ focus দাও।'; color = '#7ab3ef'; }
+    else if (rounded >= 6.0) { msg = '💪 Foundation আরো মজবুত করো।'; color = '#f4a0b5'; }
+    else { msg = '🔥 শুরু ভালো! Consistent practice চালিয়ে যাও।'; color = '#f4a0b5'; }
+
+    const res = document.getElementById('band-result');
+    const num = document.getElementById('band-num');
+    const msgEl = document.getElementById('band-msg');
+    num.textContent = rounded.toFixed(1);
+    num.style.color = color;
+    msgEl.textContent = msg;
+    res.style.display = 'block';
+  }
+
+  // ===== CANVAS PARTICLES =====
+  (function initParticles() {
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animId;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.4 + 0.1;
+        this.color = ['#004D98', '#A50044', '#EDBB00'][Math.floor(Math.random() * 3)];
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      // draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(255,255,255,${0.05 * (1 - d / 120)})`;
+            ctx.stroke();
+          }
+        }
+      }
+      animId = requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // ===== SCROLL REVEAL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ===== COUNTER ANIMATION =====
+  function animateCounters() {
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseFloat(el.getAttribute('data-count'));
+      const isInt = Number.isInteger(target);
+      let current = 0;
+      const step = target / 40;
+      const update = () => {
+        current += step;
+        if (current >= target) {
+          el.textContent = isInt ? Math.floor(target) : target.toFixed(1);
+          if (el.textContent === '3' || el.textContent === '4') el.textContent = Math.floor(target);
+          return;
+        }
+        el.textContent = isInt ? Math.floor(current) : current.toFixed(1);
+        requestAnimationFrame(update);
+      };
+      update();
+    });
+  }
+
+  // also trigger on scroll
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        counterObserver.disconnect();
+      }
+    });
+  });
+  const statRow = document.querySelector('.stat-row');
+  if (statRow) counterObserver.observe(statRow);
+
+  // ===== OPEN FIRST SECTION ON PAGE LOAD =====
+  document.addEventListener('DOMContentLoaded', () => {
+    // open the first section as demo
+    const firstCard = document.querySelector('.section-card');
+    if (firstCard) {
+      const head = firstCard.querySelector('.sec-head');
+      if (head) { setTimeout(() => tog(head), 500); }
+    }
+  });
+</script>
+</body>
+</html>
